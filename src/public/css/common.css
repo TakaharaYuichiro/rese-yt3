@@ -1,0 +1,126 @@
+html{
+  width: 100%;
+}
+
+h1, h2, p, span, th, td, input{
+  /* font-family: "Times New Roman" , "游明朝" , "Yu Mincho" , "游明朝体" , "YuMincho" , "ヒラギノ明朝 Pro W3" , "Hiragino Mincho Pro" , "HiraMinProN-W3" , "HGS明朝E" , "ＭＳ Ｐ明朝" , "MS PMincho" , serif; */
+  font-family:"Yu Gothic", "游ゴシック", YuGothic, "游ゴシック体", "ヒラギノ角ゴ Pro W3", "メイリオ", sans-serif;
+  /* font-family: 'Inika'; */
+  font-weight: normal;
+}
+h1{
+  font-size: 2rem;
+}
+h2{
+  font-size: 1.8rem;
+}
+
+body{
+  width: 100%;
+  color:#8B7969;
+  background-color: #F2F2F2;
+  min-height: 100vh;
+  position: relative;
+  padding-bottom: 30px;  /*footerの高さ*/
+  box-sizing: border-box;
+}
+
+/* =================================== */
+/* header */
+/* =================================== */
+.header {
+  width:100%;
+  background: #fff;
+  border-bottom:solid 1px #E0DFDE;
+}
+  
+.header__inner {
+  position: relative;
+  width: 100%;
+  height: 80px;
+}
+
+.header-logo {  
+  position:absolute;
+  left: 0;
+  top: 0;
+
+  width :100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content:start;
+  background: #FFF;
+}
+.header-logo a{
+  color:#8B7969;
+  text-decoration: none;
+  line-height: 0;
+  margin: 0 50px;
+}
+
+.header-utilities{
+  position: absolute;
+  right: 0;
+  top:0;
+  width: 350px;
+  height: 100%;
+  padding:10px;
+  display: flex;
+  align-items: center;
+  justify-content:space-between;
+}
+.utilitiy-form{
+  width: 25%;
+  height: 100%;
+}
+.utility-button{
+  width: 100%;
+  height: 100%;
+
+  background: #fff;
+  color:#666;
+  border: none;
+  overflow: hidden;
+}
+.utility-button:hover{
+  background: #c7c0ba;
+}
+
+/* =================================== */
+/* footer */
+/* =================================== */
+.footer{
+  width: 100vw;
+  background-color: #fff;
+  color: #fff;
+  text-align: center;
+  padding: 0;
+
+  position: absolute;
+  bottom: 0;  
+}
+.footer p {
+  font-size: 0.9rem;
+  line-height: 2px;
+  color:#222;
+}
+
+/* =================================== */
+/* レスポンシブデザイン対応 */
+/* =================================== */
+@media screen and (max-width: 480px){
+  .header__inner:has(.header-utilities){
+    .header-logo{  
+      height: 65%;
+    }
+  }
+  
+  .header-utilities{
+    height: 35%;
+    left:0;
+    top:65%;
+    padding: 0 10%;
+    width: 100%;
+  }
+}
