@@ -21,7 +21,7 @@
         <button class="date-section__button prev-button" type="submit"></button>
       </form>
 
-      <div>{{ $condition['targetDate']}}</div>
+      <div><span>{{ $condition['targetDate']}}</span></div>
 
       <form action="/attendance" method="get">
         @csrf
@@ -34,7 +34,7 @@
     </div>
 
     <div class="date-section__select-date">
-        <a href="#selectDate">日付選択</a>
+        <a href="#selectDate"><span>日付選択</span></a>
     </div>
   </div>
 

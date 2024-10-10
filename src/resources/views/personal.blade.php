@@ -20,7 +20,7 @@
     </div>
 
     <div class="user-section__select">
-      <a href="#selectUser">会員一覧</a>
+      <a href="#selectUser"><span>会員一覧</span></a>
     </div>
   </div>
 

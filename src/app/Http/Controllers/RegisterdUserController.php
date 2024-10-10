@@ -73,6 +73,9 @@ class RegisterdUserController extends Controller
 
         $this->guard->login($user);
 
+
+        session() -> put('status','verification-link-sent');
+
         return app(RegisterResponse::class);
     }
 }

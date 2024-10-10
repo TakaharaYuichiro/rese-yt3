@@ -10,7 +10,7 @@
 .current-status__container{
   display: grid;
   grid-template-rows: 100px;
-  grid-template-columns: 200px 1fr;
+  grid-template-columns: 210px 1fr;
 }
 
 .current-status{
@@ -27,12 +27,11 @@
   margin: 0 0 0 auto;
 }
 .current-status__time--realtime{
-  margin: 0 auto;
-  text-align: center;
+  margin: 0 ;
   align-items: center;    
 }
 #realtime{
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   font-weight: bold;
 }
 

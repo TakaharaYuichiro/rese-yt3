@@ -11,6 +11,7 @@
   margin: 20px auto;
   display: grid;
   grid-template-columns: 1fr 200px 1fr;
+  grid-template-rows: 40px;
   align-items: center;
 }
 .date-section__center{
@@ -28,9 +29,10 @@
   margin: 0 auto 0 40px;
 }
 .date-section__select-date a{
-  /* text-decoration: none; */
-  font-size: 0.8rem;
   color:#8B7969;
+}
+.date-section__select-date a span{
+  font-size: 0.8rem;
 }
 .date-section__select-date a:hover{
   color:#333;

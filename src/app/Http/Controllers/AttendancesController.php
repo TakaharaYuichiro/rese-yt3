@@ -113,8 +113,6 @@ class AttendancesController extends Controller
         return view('attendance', compact('data', 'condition'));
     }
 
-
-
     private function getStartTime($query){
         $startTime = $query
             ->where('content_index', '=', 1)
@@ -161,17 +159,6 @@ class AttendancesController extends Controller
             $endTimeStr = date("H:i:s", strtotime($endTime));
         }
 
-        // 勤務時間の計算
-        $workingTimeTotalStr = '未確定';
-        if (strtotime($startTime) && strtotime($endTime)){
-            $workingTimeTotal = strtotime($endTime) - strtotime($startTime);
-            $workingTimeHours = floor($workingTimeTotal/60/60);
-            $workingTimeMinutes = floor(($workingTimeTotal - $workingTimeHours * 60 * 60) / 60);
-            $workingTimeSeconds = $workingTimeTotal - $workingTimeHours * 60 * 60 - $workingTimeMinutes * 60;
-
-            $workingTimeTotalStr = sprintf('%02d', $workingTimeHours). ":". sprintf('%02d', $workingTimeMinutes). ":". sprintf('%02d', $workingTimeSeconds) ;
-        }
-
         // 休憩開始/終了時刻の取得と集計
         $queryRest = clone $queryPerUser;
         $restData = $queryRest
@@ -197,7 +184,18 @@ class AttendancesController extends Controller
         $restTimeHours = floor($restTimeTotal/60/60);
         $restTimeMinutes = floor(($restTimeTotal - $restTimeHours * 60 * 60) / 60);
         $restTimeSeconds = $restTimeTotal - $restTimeHours * 60 * 60 - $restTimeMinutes * 60;
-        $restTimeTotalStr = sprintf('%02d', $restTimeHours). ":". sprintf('%02d', $restTimeMinutes). ":". sprintf('%02d', $restTimeSeconds) ;
+        $restTimeTotalStr = sprintf('%02d', $restTimeHours). ":". sprintf('%02d', $restTimeMinutes). ":". sprintf('%02d', $restTimeSeconds);
+
+        // 勤務時間の計算
+        $workingTimeTotalStr = '未確定';
+        if (strtotime($startTime) && strtotime($endTime)){
+            $workingTimeTotal = strtotime($endTime) - strtotime($startTime) -$restTimeTotal ;
+            $workingTimeHours = floor($workingTimeTotal/60/60);
+            $workingTimeMinutes = floor(($workingTimeTotal - $workingTimeHours * 60 * 60) / 60);
+            $workingTimeSeconds = $workingTimeTotal - $workingTimeHours * 60 * 60 - $workingTimeMinutes * 60;
+
+            $workingTimeTotalStr = sprintf('%02d', $workingTimeHours). ":". sprintf('%02d', $workingTimeMinutes). ":". sprintf('%02d', $workingTimeSeconds) ;
+        }
 
         // 1行分のデータをまとめる
         $attendance = [
