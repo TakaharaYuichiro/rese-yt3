@@ -1,16 +1,19 @@
-# 勤怠管理システム
+# 勤怠管理システム Atte(アット)
 
-勤怠データを記録するシステムです。
-![MAIN SCREEN](readme_fig/screenshot_index.png)
+ブラウザ上で自分の出退勤時間や休憩時間を打刻したり、グループのメンバーの勤怠データを閲覧するためのシステムです。
+
+|![sample image](readme_fig/screenshot_index.png)|
+|:-:|
 
 ## 作成した目的
 
-勤怠データの記録はとても面倒です。ストレスなく簡単にデータを記録できるシステムあると便利です。
+出退勤・休憩などの勤怠データを記録することはとても面倒です。PCやスマホなどを利用して簡単にデータを記録できるシステムは、業務効率の改善につながります。
 
 ## アプリケーションURL
 
 - 開発環境：<http://localhost/>
 - phpMyAdmin：<http://localhost:8080>
+- MailHog：<http://localhost:8025> (ブラウザからMailHog管理画面にアクセスするためのURL)
 
 ## 他のリポジトリ
 
@@ -18,19 +21,19 @@
 
 ## 機能一覧
 
-- 会員登録
+- 会員登録 (MailHogを利用した擬似的なメール認証機能付き)
 - ログイン/ログアウト
 - 勤務開始/勤務終了登録
 - 休憩開始/休憩終了登録
-- 日付別勤怠情報表示(ページネーション: 5件ずつ)
-- 会員別勤怠情報表示(ページネーション: 7件ずつ)
+- 日付別勤怠情報表示 (ページネーション5件ずつ)
+- 会員別勤怠情報表示 (直近1ヶ月分、ページネーション7件ずつ)
 
 ## 使用技術(実行環境)
 
 - PHP 8.3.10
 - Laravel 8.83.8
 - MySQL 8.0.26
-
+  
 ## テーブル設計
 
 ![TABLE SPECIFICATION](readme_fig/table_specifications.png)
@@ -61,7 +64,7 @@ Laravel環境構築
 
 1. `docker-compose exec php bash`
 2. `composer install`
-3. 「.env.example」ファイルを 「.env」ファイルに命名を変更。または、新しく.envファイルを作成
+3. 「.env.example」ファイルをコピーし「.env」に名称を変更。または、新しく.envファイルを作成
 4. .envに以下の環境変数を追加
 
 ``` text
@@ -71,6 +74,15 @@ DB_PORT=3306
 DB_DATABASE=laravel_db
 DB_USERNAME=laravel_user
 DB_PASSWORD=laravel_pass
+
+MAIL_MAILER=smtp
+MAIL_HOST=mailhog
+MAIL_PORT=1025
+MAIL_USERNAME=null
+MAIL_PASSWORD=null
+MAIL_ENCRYPTION=null
+MAIL_FROM_ADDRESS="test_mail@ex.com"  # MailHog送信テスト用
+MAIL_FROM_NAME="${APP_NAME}"
 ```
 
 5. アプリケーションキーの作成
@@ -91,6 +103,12 @@ php artisan migrate
 php artisan db:seed
 ```
 
-## 備考
+## 動作テスト用の会員登録方法
 
+1. ブラウザからlocalhostにアクセスし、Atteアプリのログイン画面で「会員登録」のリンクボタンをクリックしてください。
+2. 会員登録画面でテスト用の名前とメールアドレス、パスワードを入力してください (テスト用のため、メールアドレスは適当な内容でかまいません)。
+3. 同じく会員登録画面で「会員登録」のボタンをクリックすると、MailHogに確認メールが送信されます (この時点では会員登録は終了していません)。
+4. ブラウザで別のタブを開き、localhost:8025にアクセスして、MailHogを起動してください。
+5. MailHogに届いた「【Atte】メールアドレスの確認確認」のメールを開き、メールに記載されているURLリンクをクリックしてください。
+6. 会員登録が完了するとAtteアプリのホーム画面が表示されます。
 
