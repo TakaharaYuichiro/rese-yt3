@@ -1,0 +1,290 @@
+.main-container{
+  padding: 15px;
+  display: grid;
+  grid-template-columns: 1.3fr minmax(350px, 1fr);
+  height: 100vh;
+}
+
+.sub-container {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+}
+
+
+/* =================================== */
+/* 店舗詳細表示画面（左側） */
+/* =================================== */
+
+.shop-detail {
+  width: 100%;
+  padding: 10px;
+}
+
+.shop-detail__name {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+}
+.shop-detail__name button {
+  width: 30px;
+  height: 30px;
+  border-radius: 5px ;
+  border: none;
+  background: white;
+  box-shadow: 2px 2px 2px gray;
+}
+.shop-detail__name span {
+  margin-left: 10px;
+  text-align: left;
+  color: black;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.shop-detail img {
+  width: 100%;
+}
+
+.shop-detail__content {
+  text-align: left;
+  font-size: 0.9rem;
+  color: #333;
+  margin: 20px 0;
+}
+
+
+.shop-detail--button {
+  margin: 10px 0 5px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.form-grid button {
+  width: 100px;
+  height: 30px;
+  border-radius: 5px;
+  background: #305DFF;
+  color: white;
+  border: none;
+  font-size: 0.7rem;
+}
+.material-icons{
+  color: lightgray;
+}
+
+
+/* =================================== */
+/* 予約入力画面（右側） */
+/* =================================== */
+.reservation {
+  background:#305DFF ;
+  height: 100%;
+  border-radius: 5px;
+  position: relative;
+}
+.reservation__inputs{
+  display: block;
+  padding: 10px 10px 100px 10px;
+}
+.reservation__title {
+  color: white;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+.reservation__content{
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+.reservation__content--title {
+  margin-right: 20px;
+  width: 80px;
+  color: white;
+}
+.reservation__content input, .reservation__content select {
+  height: 30px;
+  width: 180px;
+  border: none;
+  border-radius: 5px;
+}
+.reservation__button-container {
+  position:absolute;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  background: #0438FF;
+
+  border-radius: 0 0 5px 5px;
+}
+.reservation__button-container button {
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:100%;
+  height: 100%;
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: white;
+  background: transparent;
+  border: none;
+
+}
+.reservation__button-container:hover {
+  background: #7992f8;
+}
+/* .reservation__button-container button{
+  position:absolute;
+  width: 100%;
+  bottom: 0;
+  
+  color: white;
+  text-align: center;
+} */
+
+
+/* =================================== */
+/* メニュー表示部分 */
+/* =================================== */
+
+/* 
+.content-header{
+  display: grid;
+  height: 70px;
+  width: 100%;
+  grid-template-columns: minmax(160px, 300px) 1fr;
+  grid-template-rows: 100%;
+  align-items: center;
+}
+
+.content-header__menu {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.content-header__menu--humberger {
+  margin: 0 10px;
+  position: relative;
+  height: 44px;
+  width: 44px;
+  display: inline-block;
+  box-sizing: border-box;
+  background: #305DFF; 
+  box-shadow: 2px 2px 2px gray;
+  border-radius: 4px;
+
+  transition: transform 0.3s;
+}
+.humberger-line {
+  position: absolute;
+  left: 7px;
+  height: 2px;
+  width: 28px;
+  background-color: white;
+  border-radius: 2px;
+  display: inline-block;
+  box-sizing: border-box;
+  transition: 0.3192s
+}
+.humberger-line:nth-child(1) {
+  bottom: 30px;
+  width: 18px;
+}
+.humberger-line:nth-child(2) {
+  bottom: 20px;
+  width: 28px;
+}
+.humberger-line:nth-child(3) {
+  bottom: 10px;
+  width: 10px;
+}
+.content-header__menu--text {
+  color: #305DFF;
+  font-weight: 900;
+  font-size: 26px;
+}
+
+#menu-btn {
+  display: none;
+}
+
+.menu1 {
+  list-style: none;
+  position: absolute;
+  width: 300px;
+  height: auto;
+  top: 0;
+  margin-top: 50px;
+  padding: 10px;
+  clear: both;
+  background: #F2F2F2;
+  transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
+  transform: scale(1, 0);
+  transform-origin: top;
+}
+
+.menu1 a {
+  text-decoration: none;
+  font-weight: 550;
+  letter-spacing: 2px;
+  font-size: 16px;
+  text-transform: capitalize;
+  color: #305DFF;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.menu1 li {
+  padding: 15px 0;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+#menu-btn:checked ~ .menu1 {
+  transform: scale(1, 1);
+  transform-origin: top;
+  transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
+}
+#menu-btn:checked ~ .menu1 a,
+#menu-btn:checked ~ .menu1 li {
+  opacity: 1;
+  transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.2s;
+}
+
+#menu-btn:checked ~ .content-header__menu--humberger .humberger-line:nth-child(1){
+  bottom: 20px;
+  width: 28px;
+  transform: rotate(45deg);
+  transition: 0.3192s;
+}
+#menu-btn:checked ~ .content-header__menu--humberger .humberger-line:nth-child(2){
+  width: 0px;
+  transition: 0.1s;
+}
+#menu-btn:checked ~ .content-header__menu--humberger .humberger-line:nth-child(3){
+  bottom: 20px;
+  width: 28px;
+  transform: rotate(-45deg);
+  transition: 0.3192s;
+}
+
+ */
+
+
+
+/* =================================== */
+/* レスポンシブデザイン対応 */
+/* =================================== */
+@media screen and (max-width: 768px){
+  .main-container{
+    display: block;
+    height: auto;
+  }
+  .sub-container{
+    width: 100%;
+  }
+
+
+}

@@ -4,8 +4,13 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AttendancesController;
 use App\Http\Controllers\RegisterdUserController;
 use App\Http\Controllers\AuthenticatedSessionController;
-
 use App\Http\Controllers\Auth\EmailVerificationController;
+
+
+use App\Http\Controllers\ShopAllController;
+use App\Http\Controllers\ShopDetailController;
+use App\Http\Controllers\ReservationController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -47,7 +52,7 @@ Route::post('/logout',[AuthenticatedSessionController::class,'destroy']);
 
 // 認証が必要なページ
 Route::middleware(['web', 'verified', 'auth'])->group(function () {
-    Route::get('/', [AttendancesController::class, 'index']);
+    // Route::get('/', [AttendancesController::class, 'index']);
     Route::post('/store', [AttendancesController::class, 'store']);
     Route::get('/attendance', [AttendancesController::class, 'attendance']);
     Route::get('/personal', [AttendancesController::class, 'personal']);
@@ -55,3 +60,12 @@ Route::middleware(['web', 'verified', 'auth'])->group(function () {
     Route::post('/reset_all', [AttendancesController::class, 'resetAll']);
     Route::post('/reset_end', [AttendancesController::class, 'resetEnd']);
 });
+
+Route::get('/', [ShopAllController::class, 'index']);
+Route::post('/search', [ShopAllController::class, 'search']);
+
+Route::post('/detail', [ShopDetailController::class, 'index']);
+
+Route::post('/reservation/confirm', [ReservationController::class, 'confirm']);
+Route::post('/reservation/store', [ReservationController::class, 'store']);
+
