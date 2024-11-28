@@ -10,7 +10,13 @@
     @csrf
     <div class="reservation__contents">
         <div class="reservation__title">
-            <span>予約内容確認</span>
+            <span>
+                @if ($reservation['exists_reservation_id'] == 0)
+                    予約内容確認
+                @else
+                    予約内容確認(予約変更)
+                @endif
+            </span>
         </div> 
 
         <table class="confirm-table">
@@ -64,8 +70,16 @@
         </table>
     </div>
 
+    <input type="hidden" name="exists_reservation_id" value="{{ $reservation['exists_reservation_id'] }}"/>
+
     <div class="reservation__button-container">
-        <button class="reservation__button" type="submit" name="submin">この内容で予約する</button>
+        <button class="reservation__button" type="submit" name="submit">
+            @if($reservation['exists_reservation_id'] == 0)
+                この内容で予約する
+            @else
+                この内容に変更する
+            @endif
+        </button>
         <button class="reservation__button reservation__button-cancel" type="submit" name="cancel">修正</button>
     </div>
 

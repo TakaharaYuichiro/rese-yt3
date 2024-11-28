@@ -10,6 +10,7 @@ use App\Http\Controllers\Auth\EmailVerificationController;
 use App\Http\Controllers\ShopAllController;
 use App\Http\Controllers\ShopDetailController;
 use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\MypageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,11 +62,20 @@ Route::middleware(['web', 'verified', 'auth'])->group(function () {
     Route::post('/reset_end', [AttendancesController::class, 'resetEnd']);
 });
 
-Route::get('/', [ShopAllController::class, 'index']);
+Route::get('/', [ShopAllController::class, 'index'])->name('home');
 Route::post('/search', [ShopAllController::class, 'search']);
+Route::post('/favorite', [ShopAllController::class, 'favorite']);
 
-Route::post('/detail', [ShopDetailController::class, 'index']);
+// Route::get('/detail', [ShopDetailController::class, 'index']);
+Route::get('/detail/{shop_id}', [ShopDetailController::class, 'index'])->name('detail');
 
 Route::post('/reservation/confirm', [ReservationController::class, 'confirm']);
-Route::post('/reservation/store', [ReservationController::class, 'store']);
+Route::post('/reservation/store', [ReservationController::class, 'store']);	// exists_reservation_id==0ならcreate, >0ならupdateと使い分ける
+// Route::post('/reservation/delete', [ReservationController::class, 'delete']);
+// Route::post('/reservation/update', [ReservationController::class, 'update']);
+Route::post('/reservation/delete', [ReservationController::class, 'delete']);
+Route::post('/reservation/reservation_change', [ReservationController::class, 'reservationChange']);	// 予約内容画面を開く(実際のupdateはstoreで実行)
+
+Route::get('/mypage', [MypageController::class, 'index']);
+Route::post('/mypage/favorite', [MypageController::class, 'favorite']);
 

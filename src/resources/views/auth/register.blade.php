@@ -68,6 +68,7 @@
         </div>
       </div>
       <div class="form__button">
+        <div class="form__button-cancel"><a href="{{ route('home') }}">キャンセル</a></div> 
         <button class="form__button-submit" type="submit">会員登録</button>
       </div>
     </form>

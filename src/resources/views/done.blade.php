@@ -6,14 +6,17 @@
 
 @section('content')
   <div class="thanks__content">
-    <div class="backStr"><span>Thank you</span></div>
+
     <div class="thanks__content--inner">
       <div class="thanks__heading">
-        <h2>ご予約ありがとうございました</h2>
+      @if(session('message'))
+        <h2>{{ session('message') }}</h2>
+      @endif
+        <h2>{{$message}}</h2>
       </div>
       <div class="form__button">
         <button class="form__button-submit">
-          <a href="/">HOME</a>
+          <a href="/mypage">戻る</a>
         </button>
       </div>
     </div>

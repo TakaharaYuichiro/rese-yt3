@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Consts\CommonConst;
 
 class Shop extends Model
 {
@@ -13,6 +14,16 @@ class Shop extends Model
 
     public function genre(){    
         return $this->belongsTo(Genre::class);
+    }
+
+    public function evaluation()
+    {
+        return $this->hasMany(Evaluation::class);
+    }
+
+    public function getPrefName() {
+        $prefCodes = CommonConst::PREF_CODE;
+        return $prefCodes[$this->area_index];
     }
 
     public function scopeKeywordSearch($query, $keyword_expression){

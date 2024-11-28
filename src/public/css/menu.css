@@ -2,118 +2,158 @@
 /* =================================== */
 /* menu */
 /* =================================== */
-.form-header__menu {
-    display: flex;
-    align-items: center;
-    position: relative;
+#menu-container__parent {
+  position: relative;
+  height: 100%;
+  width: 250px;
+}
+
+.humberger-button--label {
+  margin: 0 10px;
+  position: relative;
+  height: 44px;
+  width: 44px;
+  display: inline-block;
+  box-sizing: border-box;
+  background: #305DFF;
+  box-shadow: 2px 2px 2px gray;
+  border-radius: 4px;
+  transition: transform 0.3s;
+  top: 10px;
+}
+.humberger-line {
+  position: absolute;
+  left: 7px;
+  height: 2px;
+  width: 28px;
+  background-color: white;
+  border-radius: 2px;
+  display: inline-block;
+  box-sizing: border-box;
+  transition: 0.3192s
+}
+.humberger-line:nth-child(1) {
+  bottom: 30px;
+  width: 18px;
+}
+.humberger-line:nth-child(2) {
+  bottom: 20px;
+  width: 28px;
+}
+.humberger-line:nth-child(3) {
+  bottom: 10px;
+  width: 10px;
+}
+#humberger-button--check-box {
+  display: none;
+}
+
+.menu-title {
+  position: absolute;
+  top: 10px;
+  left: 60px;
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+.menu-title span {
+  color: #305DFF;
+  font-weight: 900;
+  font-size: 1.5rem;
+}
+
+.menu-container{
+  position: absolute;
+  width: 100%;
+  height: auto;
+  top: 0;
+  margin-top: 80px;
+  padding: 10px;
+  clear: both;
+  background: #F9F9F9;
+  transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
+  transform: scale(1, 0);
+  transform-origin: top;
+  box-shadow: 2px 2px 2px gray;
+}
+
+.menu-container ul{
+  margin: 5px;
+  padding: 0;
+  list-style: none;
+}
+
+.menu-container button{
+  background: transparent;
+  border: none;
+}
+
+.menu-container button span{
+  font-weight: 550;
+  letter-spacing: 2px;
+  font-size: 16px;
+  color: #305DFF;
+}
+
+.menu-container a {
+  text-decoration: none;
+  font-weight: 550;
+  letter-spacing: 2px;
+  font-size: 16px;
+  text-transform: capitalize;
+  color: #305DFF;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.menu-container li {
+  padding: 15px 0;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+#humberger-button--check-box:checked ~ .menu-container {
+  transform: scale(1, 1);
+  transform-origin: top;
+  transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
+}
+#humberger-button--check-box:checked ~ .menu-container a,
+#humberger-button--check-box:checked ~ .menu-container li {
+  opacity: 1;
+  transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.2s;
+}
+
+#humberger-button--check-box:checked ~ .humberger-button--label .humberger-line:nth-child(3){
+  bottom: 20px;
+  width: 28px;
+  transform: rotate(45deg);
+  transition: 0.3192s;
+}
+#humberger-button--check-box:checked ~ .humberger-button--label .humberger-line:nth-child(2){
+  width: 0px;
+  transition: 0.1s;
+}
+#humberger-button--check-box:checked ~ .humberger-button--label .humberger-line:nth-child(1){
+  bottom: 20px;
+  width: 28px;
+  transform: rotate(-45deg);
+  transition: 0.3192s;
+}
+
+
+@media screen and (max-width: 768px){
+  .menu-title span{
+    font-size: 1rem;
   }
-  
-  
-  .form-header__menu--humberger {
-    margin: 0 10px;
-    position: relative;
-    height: 44px;
-    width: 44px;
-    display: inline-block;
-    box-sizing: border-box;
-    background: #305DFF;
-    box-shadow: 2px 2px 2px gray;
-    border-radius: 4px;
-  
-    transition: transform 0.3s;
-  }
-  .humberger-line {
-    position: absolute;
-    left: 7px;
-    height: 2px;
-    width: 28px;
-    background-color: white;
-    border-radius: 2px;
-    display: inline-block;
-    box-sizing: border-box;
-    transition: 0.3192s
-  }
-  .humberger-line:nth-child(1) {
-    bottom: 30px;
-    width: 18px;
-  }
-  .humberger-line:nth-child(2) {
-    bottom: 20px;
-    width: 28px;
-  }
-  .humberger-line:nth-child(3) {
-    bottom: 10px;
-    width: 10px;
-  }
-  .form-header__menu--text {
-    color: #305DFF;
-    font-weight: 900;
-    font-size: 26px;
-  }
-  
-  #menu-btn {
+}
+
+@media screen and (max-width: 580px){
+  .menu-title {
     display: none;
   }
-  
-  .menu1 {
-    list-style: none;
-    position: absolute;
-    width: 300px;
-    height: auto;
-    top: 0;
-    margin-top: 50px;
-    padding: 10px;
-    clear: both;
-    background: #F2F2F2;
-    transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
-    transform: scale(1, 0);
-    transform-origin: top;
-  }
-  
-  .menu1 a {
-    text-decoration: none;
-    font-weight: 550;
-    letter-spacing: 2px;
-    font-size: 16px;
-    text-transform: capitalize;
-    color: #305DFF;
-    opacity: 0;
-    transition: 0.5s;
-  }
-  
-  .menu1 li {
-    padding: 15px 0;
-    opacity: 0;
-    transition: 0.5s;
-  }
-  
-  #menu-btn:checked ~ .menu1 {
-    transform: scale(1, 1);
-    transform-origin: top;
-    transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
-  }
-  #menu-btn:checked ~ .menu1 a,
-  #menu-btn:checked ~ .menu1 li {
-    opacity: 1;
-    transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.2s;
-  }
-  
-  #menu-btn:checked ~ .form-header__menu--humberger .humberger-line:nth-child(3){
-    bottom: 20px;
-    width: 28px;
-    transform: rotate(45deg);
-    transition: 0.3192s;
-  }
-  #menu-btn:checked ~ .form-header__menu--humberger .humberger-line:nth-child(2){
-    width: 0px;
-    transition: 0.1s;
-  }
-  #menu-btn:checked ~ .form-header__menu--humberger .humberger-line:nth-child(1){
-    bottom: 20px;
-    width: 28px;
-    transform: rotate(-45deg);
-    transition: 0.3192s;
-  }
+}
   
   
   

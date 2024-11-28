@@ -58,8 +58,9 @@ body{
   width: 150px;
   height: 50px;
   border: none;
-  background: #82756A;
+  background: #305DFF;
   cursor: pointer;
+  border-radius: 5px;
 }
 .form__button-submit:hover{
   background: #c7c0ba;

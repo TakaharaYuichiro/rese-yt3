@@ -74,15 +74,30 @@
 }
 
 .form__button-submit {
-
   width: 80px;
   height: 30px;
+  margin-left: 10px;
   border: none;
   border-radius: 10%;
   background: #305DFF; /* reseの要件で指定されている青色 */
   color: #fff;
   cursor: pointer;
   font-size: 0.8rem;
+}
+
+.form__button-cancel {
+  width: 80px;
+  height: 30px;
+  border: none;
+  border-radius: 10%;
+  background: #999;
+  
+}
+.form__button-cancel a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 0.7rem;
+  white-space: nowrap;
 }
 
 
