@@ -1,0 +1,112 @@
+.main-container {
+    margin: 0 auto;
+    padding: 15px;
+    max-width: 1230px;
+}
+
+
+
+/* =================================== */
+/* 予約内容確認 */
+/* =================================== */
+.reservation__contents{
+    display: block;
+    padding: 10px 10px 100px 10px;
+}
+.reservation__title {
+    color: black;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+.reservation__title span {
+    font-weight: 550;
+}
+.reservation__content {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+.reservation__content input, .reservation__content select {
+    height: 30px;
+    width: 180px;
+    border: none;
+    border-radius: 5px;
+}
+
+.reservation__button-container {
+    width: 100%;
+    height: 70px;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.reservation__button {
+    width: 250px;
+    height: 70%;
+    border-radius: 5px;
+    border: none;
+    cursor: spointer;
+    font-size: 1.1rem;
+    font-weight: 700;
+    background: #82756A;
+    color: #fff;
+}
+
+.reservation__button-cancel {
+    width: 150px;
+    background: #F0f0f0;
+    color: #8B7969;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.reservation__button:hover{
+    background: #c7c0ba;
+}
+
+/* =================================== */
+/* 予約内容の表の部分 */
+/* =================================== */
+.confirm-table {
+    width: 100%;
+    table-layout: fixed;
+}
+
+.confirm-table tr{
+    width: 100%;
+}
+
+.confirm-table__header {
+    padding: 15px;
+    width: 120px;
+    border-bottom: 1px solid #ddd;
+    background-color: transparent;
+    font-weight: 500;
+    font-size: 1rem;
+    color: #8B7969;
+}
+
+.confirm-table__text {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;  
+    background-color: transparent;
+}
+
+.confirm-table__text input, .confirm-table__text span {
+    width: 100%;
+    outline: none;
+    border: none;
+    color:#8B7969;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.confirm-table__row:last-child .confirm-table__header,
+.confirm-table__row:last-child .confirm-table__text {
+    border-bottom-width: 0;
+}
+
+
+  

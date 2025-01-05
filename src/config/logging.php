@@ -113,6 +113,14 @@ return [
         'emergency' => [
             'path' => storage_path('logs/laravel.log'),
         ],
+
+
+        // 毎朝の予約リマインダーメールのログ
+        'reminder_mail' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/reminder_mail.log'),
+            'level' => env('LOG_LEVEL', 'info'),
+        ],
     ],
 
 ];

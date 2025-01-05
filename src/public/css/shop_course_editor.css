@@ -1,0 +1,186 @@
+.main-container {
+    margin: 0 auto;
+    padding: 15px;
+    max-width: 1230px;
+}
+
+/* =================================== */
+/* alert, message */
+/* =================================== */
+
+.message-container--success{
+    padding: 10px ;
+    background:#d1e7dd ;
+    border-color: #bcd5c9;
+    color: #0f5132
+}
+.message-container--danger{
+    padding: 10px 0;
+    border-color: #f5c2c7;
+    background-color: #f8d7da;
+    color: #842029;
+}
+.message-container--danger ul{
+    margin:0;
+}
+
+
+
+/* =================================== */
+/*  */
+/* =================================== */
+
+.editor-container {
+    margin: 10px 0 30px;
+}
+.editor-container__title {
+    display: flex;
+    padding: 5px 0;
+}
+.editor-container__title span{
+    font-size: 1.2rem;
+    font-weight: 550;
+}
+
+.editor-form{
+    margin: 0 auto ;
+    padding: 0 1%;
+    max-width: 1230px;
+}
+.form-submit-button__container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin-top:40px;
+}
+.form-submit-button__container button {
+    width: 250px;
+    height: 60px;
+    background: #8B7969;
+    color: #fff;
+    border: none;
+    font-size: 1.2rem;
+}
+.form-submit-button__container button:hover {
+    background: #e5af9d;
+    color: #000;
+    cursor: pointer;
+}
+
+
+/* =================================== */
+/* コースメニュー設定用のテーブル */
+/* =================================== */
+.course-table{
+    width: 100%;
+    /* table-layout: fixed; */
+    font-size: 0.9rem;
+}
+.course-table th{
+    font-size: 16px;
+    padding: 10px 5px;
+    background: #8B7969;
+    color:#fff;
+}
+.course-table__header--id {
+    /* width: 60px; */
+}
+.course-table__header--name {
+    /* min-width: 200px; */
+}
+.course-table__header--price {
+    /* width: 120px; */
+}
+.course-table__header--enable {
+    /* width: 120px; */
+}
+.course-table__header--long-button {
+    /* width: 130px; */
+}
+.course-table__header--short-button {
+    /* width: 70px; */
+}
+.course-table td{
+    padding: 2px 5px;
+    border-bottom: 1px solid #aaa;
+    vertical-align:center;
+
+    /* border:1px solid red; */
+}
+.course-td--text {
+    padding: 0 5px;
+    /* background: #e8e8e8; */
+}
+.course-td--id{
+    text-align: center;
+}
+.course-td--price{
+    text-align: right;
+    white-space: nowrap;
+}
+
+
+
+.course-td--textarea {
+    width: 100%;
+    padding: 0 5px;
+    border: none;
+    appearance: none;
+    height: 40px;
+    background: #FCFCFC;
+    color:#8B7969;
+}
+.course-td--input {
+    width: 100%;
+    padding: 0 5px;;
+    border: none;
+    appearance: none;
+    height: 40px;
+    background: #FCFCFC;
+    color:#8B7969;
+}
+.course-td--checkbox {
+    width: 20px;
+    transform: scale(1.25);
+    margin:0 0 0 5px;
+}
+label {
+    font-size: 0.9rem;
+    color:#8B7969;
+}
+
+.course-table select {
+    width: 300px;
+}
+
+.course-availability-button,
+.course-add-button,
+.course-remove-button {
+    width: 60px;
+    background: #8B7969;
+    color: #fff;
+    /* background: #F4F4F4;
+    color: #a29283; */
+    font-size: 14px;
+    border-width: 0;
+    border-radius: 3px;
+    font-weight: 500;
+    padding: 5px 10px;
+
+}
+.course-availability-button {
+    width: 120px;
+}
+.course-availability-button:hover,
+.course-add-button:hover,
+.course-remove-button:hover {
+    background: #c7c0ba;
+}
+
+
+.course-td__long-button,
+.course-td__short-button {
+    text-align: center;
+}

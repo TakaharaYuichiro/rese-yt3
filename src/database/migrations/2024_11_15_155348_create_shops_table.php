@@ -19,7 +19,7 @@ class CreateShopsTable extends Migration
             $table->tinyInteger('area_index');
             $table->foreignId('genre_id')->constrained()->cascadeOnDelete();
             $table->text('content')->nullable();
-            $table->string('image_filename');
+            $table->string('image_filename')->nullable();
             $table->timestamps();
         });
     }

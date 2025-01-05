@@ -1,0 +1,89 @@
+.main-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-content__window {
+    margin: auto;
+    padding: 20px;
+    max-width: 1230px;
+  
+    width: 400px;
+    background: white;
+    box-shadow: 6px 2px 10px gray;
+    border-radius: 4px;
+}
+
+.header-container {
+    padding: 3px 15px 10px;
+}
+.user-name--text {
+    font-size: 1.5rem;
+}
+
+.main-form{
+    width: 100%;
+    align-items: center;
+}
+.main-form__button {
+    width: 100%;
+    padding: 5px;
+    display:flex;
+    justify-content: center;
+}
+.button--submit{
+    width: 80px;
+    height: 30px;
+    background:#BA370D;
+    color:#fff;
+    font-weight: bold;
+    border: none;
+    margin: 0 10px;
+}
+.button--cancel {
+    background: rgb(171, 155, 155);
+}
+.button--submit:hover{
+    background: #e5af9d;
+    color: #000;
+    cursor: pointer;
+}
+
+.main-table__container{
+    padding: 0;
+    color: #8B7969;
+    overflow:scroll;
+    height: 500px;
+    width: 320px;
+    border: 1px solid lightgray;
+    margin: 0 auto;
+}
+
+.main-table{
+    table-layout: fixed;
+    width: 100%;
+}
+.main-table tr{
+    border-bottom: 1px solid #ccc;   
+}
+.main-table th{
+    padding: 5px 0;
+    font-weight: bold;
+    background: #8B7969;
+    color: #fff;
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+.main-table__header1 {
+    width: 200px;
+}
+.main-table__header2 {
+    width: 120px;
+}
+.main-table td{
+    padding: 5px;
+    text-align: center;
+}

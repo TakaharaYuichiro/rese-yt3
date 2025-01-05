@@ -1,0 +1,145 @@
+.main-container {
+    margin: 0 auto;
+    padding: 15px;
+    max-width: 1230px;
+}
+
+/* =================================== */
+/* alert, message */
+/* =================================== */
+
+.message-container--success{
+    padding: 10px ;
+    background:#d1e7dd ;
+    border-color: #bcd5c9;
+    color: #0f5132
+}
+.message-container--danger{
+    padding: 10px 0;
+    border-color: #f5c2c7;
+    background-color: #f8d7da;
+    color: #842029;
+}
+.message-container--danger ul{
+    margin:0;
+}
+
+/* =================================== */
+/* 新規店舗作成ボタン */
+/* =================================== */
+.utility-container {
+    padding: 10px 0px 10px;
+}
+.utility-container__title {
+    font-size: 1.4rem;
+    font-weight: 650;
+    margin: 5px 0;
+}
+
+.utility-container button{
+    background: #8B7969;
+    color: #fff;
+    font-size: 1.1rem;
+    border-width: 0;
+    border-radius: 3px;
+    font-weight: 500;
+    padding: 5px 15px;
+}
+.utility-container button:hover {
+    background: #c7c0ba;
+}
+/* =================================== */
+/*  */
+/* =================================== */
+
+.editor-container {
+    margin: 10px 0 30px;
+}
+.editor-container__title {
+    display: flex;
+    padding: 5px 0;
+}
+.editor-container__title span{
+    font-size: 1.2rem;
+    font-weight: 550;
+}
+
+.editor-form{
+    margin: 0 auto ;
+    padding: 0 1%;
+    max-width: 1230px;
+}
+.form-submit-button__container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin-top:40px;
+}
+.form-submit-button__container button {
+    width: 250px;
+    height: 60px;
+    background: #8B7969;
+    color: #fff;
+    border: none;
+    font-size: 1.2rem;
+}
+.form-submit-button__container button:hover {
+    background: #e5af9d;
+    color: #000;
+    cursor: pointer;
+}
+
+
+/* =================================== */
+/* コースメニュー設定用のテーブル */
+/* =================================== */
+.course-table{
+    width: 100%;
+    /* table-layout: fixed; */
+    font-size: 0.9rem;
+}
+
+.course-table__header--name,
+.course-table__header--price,
+.course-table__header--button {
+    font-size: 16px;
+    padding: 10px 5px;
+    background: #8B7969;
+    color:#fff;
+}
+
+.course-td--text,
+.course-td__button
+{
+    padding: 2px 5px;
+    border: 1px solid #aaa;
+    vertical-align:center;
+    text-align: center;
+    white-space: none;
+
+
+
+}
+.course-td--price{
+    text-align: right;
+}
+
+.course-edit-button {
+    width: 60px;
+    background: #8B7969;
+    color: #fff;
+    /* background: #F4F4F4;
+    color: #a29283; */
+    font-size: 14px;
+    border-width: 0;
+    border-radius: 3px;
+    font-weight: 500;
+    padding: 5px 10px;
+
+}
+
+.course-edit-button:hover {
+    background: #c7c0ba;
+}

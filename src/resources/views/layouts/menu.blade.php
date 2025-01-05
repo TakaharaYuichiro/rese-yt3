@@ -11,23 +11,49 @@
     <div class="menu-container">
         <ul>
             <li>
-                <form id="menu1--form" action="/" method="get">
-                    @csrf
-                    <button><span id="menu1--text">Home</span></button>
+                <form action="/" method="get">
+                    <button><span>Home</span></button>
                 </form>
             </li>
-            <li>
-                <form id="menu2--form" action="/register" method="get">
-                    @csrf
-                    <button><span id="menu2--text">Registration</span></button>
-                </form>
-            </li>
-            <li>
-                <form id="menu3--form" action="/login" method="get">
-                    @csrf
-                    <button><span id="menu3--text">Login</span></button>
-                </form>
-            </li>
+            @guest
+                <li>
+                    <form action="/register" method="get">
+                        <button><span>Registration</span></button>
+                    </form>
+                </li>
+                <li>
+                    <form action="/login" method="get">
+                        <button><span>Login</span></button>
+                    </form>
+                </li>
+            @endguest
+            @auth                
+                <li>
+                    <form action="/logout" method="post">
+                        @csrf
+                        <button><span>Logout</span></button>
+                    </form>
+                </li>
+                <li>
+                    <form action="/mypage" method="get">
+                        <button><span>My Page</span></button>
+                    </form>
+                </li>
+            @endauth
+            @can('manager-higher')
+                <li>
+                    <form action="/manager_page" method="get">
+                        <button><span id="menu4--text">店舗代表者マイページ</span></button>
+                    </form>
+                </li>
+            @endcan
+            @can('admin-higher')
+                <li>
+                    <form action="/admin" method="get">
+                        <button><span>管理者ページ</span></button>
+                    </form>
+                </li>
+            @endcan
         </ul>
     </div>
 </div>
@@ -43,27 +69,13 @@
                 menuBtn.checked = false;
             }
         } 
+
+        // console.log(menuBtn.checked);
+        // if(menuBtn.checked) {
+        //     if(!e.target.closest('#menu-container')) {
+        //         menuBtn.checked = false;
+        //     }
+        // }
+
     });
-
-    const userName = '<?php echo $profile['name']; ?>';
-    if(userName === '') {
-
-    } else {
-
-
-        const menuForm2 = document.getElementById('menu2--form');
-        const menuForm3 = document.getElementById('menu3--form');
-        const menuText2 = document.getElementById('menu2--text');
-        const menuText3 = document.getElementById('menu3--text');
-
-        menuText2.innerHTML = "Logout";
-        menuForm2.setAttribute('action', '/logout');
-        menuForm2.setAttribute('method', 'post');
-        menuText3.innerHTML = "My Page";
-        menuForm3.setAttribute('action', '/mypage');
-        
-    }
-
-
-
 </script>

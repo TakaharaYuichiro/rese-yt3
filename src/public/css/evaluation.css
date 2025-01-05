@@ -1,0 +1,261 @@
+.main-container {
+  margin: 0 auto;
+  padding: 15px 15px 60px 15px;
+  max-width: 1230px;
+}
+.header-container{
+  display: grid;
+  width: 100%;
+  height: 80px;
+  grid-template-columns: minmax(70px, 20%) 1fr;
+  grid-template-rows: 100%;
+  align-items: center;
+}
+.header-container__1st-block{
+  grid-column: 1;
+  height: 100%;
+}
+.header-container__2nd-block {
+  grid-column: 2;
+  height: 100%;
+}
+.sub-container{
+  padding: 15px 0;
+}
+
+.content-container {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.content-title {
+  color: #8B7969;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+.content-message {
+  color: white;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+/* =================================== */
+/* user name */
+/* =================================== */
+.user-name__content {
+  position: absolute;
+  top: 10px;
+  right: 5px;
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  padding: 5px 10px;
+}
+.user-name__content span:nth-child(2) {
+  margin-left: 10px;
+}
+.user-name__content span{
+  color: #666;
+}
+
+/* =================================== */
+/* 店舗詳細 */
+/* =================================== */
+.shop-detail {
+  width: 100%;
+}
+
+.shop-detail__name {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.shop-detail__name span {
+  margin-left: 10px;
+  text-align: left;
+  color: black;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.shop-detail__main-block {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.shop-detail img {
+  width: 55%;
+  max-width: 400px;
+  object-fit: contain;
+}
+
+.shop-detail__content--container {
+  padding: 0 10px;
+}
+
+.shop-detail__content {
+  text-align: left;
+  font-size: 0.9rem;
+  color: #333;
+  padding-bottom: 10px;
+}
+.shop-detail__content:last-child {
+  padding-bottom: 0;
+}
+
+.shop-detail--button {
+  margin: 10px 0 5px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.form-grid button {
+  width: 100px;
+  height: 30px;
+  border-radius: 5px;
+  background: #305DFF;
+  color: white;
+  border: none;
+  font-size: 0.7rem;
+}
+
+
+/* =================================== */
+/* 評価入力 */
+/* =================================== */
+.evaluation {
+  background:#305DFF ;
+  border-radius: 5px;
+  padding: 10px;
+  max-width: 600px;
+}
+.evaluation__content {
+  display: flex;
+  align-items: center;
+  padding: 5px 20px;
+  margin-bottom: 10px;
+}
+.evaluation__content--name {
+  width: 80px;
+  color: white;
+  font-weight: 600;
+}
+
+.star-button {
+  width: 40px;
+  background: transparent;
+  padding: 0;
+  border: none;
+}
+
+.star-text--icon {
+  font-size: 2rem;
+  color: #eee;
+}
+.material-icons.star-text--icon{
+  font-size: 1.5rem;
+}
+.star-text--point {
+  font-size: 0.8rem;
+  color: #ccc;
+}
+
+.evaluation__content--comment {
+  max-height: 130px;
+  /* max-width: 500px; */
+  width: 100%;
+}
+
+.evaluation__submit-button {
+  width: 150px;
+  height: 35px;
+  background: #D1E6EF;
+  color: #52535A;
+  font-weight: bold;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 5px;
+}
+
+/* =================================== */
+/* 過去の評価結果 */
+/* =================================== */
+.evaluation-item {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  margin-left: 30px;
+}
+.evaluation-item--name {
+  grid-column: 1;
+}
+.evaluation-item--value {
+  grid-column: 2;
+}
+
+.reservation-header__evaluation--score {
+  display: flex;
+  align-items: center;
+}
+.material-icons.evaluation-score {
+  font-size: 1.3rem; 
+}
+
+/* =================================== */
+/* 評価店舗の過去の利用履歴 */
+/* =================================== */
+.reservation-table {
+  table-layout: fixed;
+  margin-left: 0px;
+}
+
+.reservation-table th {
+  padding: 3px 5px;
+  background: #8B7969;
+  color:#fff;
+}
+.reservation-table__header--date{
+  width: 200px;
+}
+.reservation-table__header--start-time{
+  width: 150px;
+}
+.reservation-table__header--people-counts{
+  width: 150px;
+}
+
+.reservation-table td{
+  padding: 3px 5px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+
+
+
+
+/* =================================== */
+/* レスポンシブデザイン対応 */
+/* =================================== */
+@media screen and (max-width: 768px){
+  .shop-detail__main-block {
+    display: block;
+  }
+  .shop-detail__main-block img{
+    width: 400px;
+  }
+  .shop-detail__content--container {
+    margin-top: 10px;
+  }
+
+  .sub-container{
+    display: block;
+    height: auto;
+  }
+  .content-container{
+    width: 100%;
+  }
+
+
+}

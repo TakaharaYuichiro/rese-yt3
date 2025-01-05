@@ -1,0 +1,158 @@
+.main-container {
+    margin: 0 auto;
+    padding: 15px;
+    max-width: 1230px;
+}
+
+/* =================================== */
+/* alert, message */
+/* =================================== */
+.message-container--success{
+    padding: 10px ;
+    background:#d1e7dd ;
+    border-color: #bcd5c9;
+    color: #0f5132
+}
+.message-container--danger{
+    padding: 10px 0;
+    border-color: #f5c2c7;
+    background-color: #f8d7da;
+    color: #842029;
+}
+.message-container--danger ul{
+    margin:0;
+}
+
+/* =================================== */
+/* 新規店舗作成ボタン */
+/* =================================== */
+.utility-container {
+    display: flex;
+    padding: 10px 5px 10px;
+}
+
+.utility-container button{
+    background: #8B7969;
+    color: #fff;
+    font-size: 1.2rem;
+    border-width: 0;
+    border-radius: 3px;
+    font-weight: 500;
+    padding: 5px 15px;
+}
+.utility-container button:hover {
+    background: #c7c0ba;
+}
+
+/* =================================== */
+/* list-section */
+/* =================================== */
+.list-section{
+    margin: 0 auto ;
+    padding: 0 5px;
+    max-width: 1230px;
+}
+.info-table{
+    width: 100%;
+}
+.info-table__header{
+    font-size: 16px;
+    padding: 10px 5px;
+    background: #8B7969;
+    color:#fff;
+}
+
+.info-table__row{
+    border-bottom: 1px solid #8B7969;
+    text-align: center;
+    
+}
+.info-table__td{
+    padding: 10px 5px;
+}
+.info-table__td {
+    border-left: 1px solid #8B7969;
+}
+
+.info-table__td--containg-button:last-child{
+    border-right: 1px solid #8B7969;
+}
+
+.info-table__td--containg-button{
+    width: 0;
+    white-space:nowrap;
+    padding:1px;
+}
+
+.with-explanation-button {
+    width: 55px;
+    height: 55px;
+    padding: 0;
+    background: transparent;
+    border-width: 0;
+    border-radius: 3px;   
+}
+.with-explanation-button--icon {
+    color: #8B7969;
+    font-size: 1.5rem;
+}
+.with-explanation-button--explanation{
+    color: #8B7969;
+    font-size: 10px;
+}
+.with-explanation-button:hover{
+    background: #c7c0ba;
+}
+
+.info-button {
+    width: 35px;
+    height: 35px;
+    padding: 0;
+    background: transparent;
+    border-width: 0;
+    border-radius: 3px;
+}
+.info-button span{
+    color: #8B7969;
+    font-size: 1.5rem;
+}
+.info-button:hover{
+    background: #c7c0ba;
+}
+
+@media screen and (max-width: 768px){
+    .header-container__2nd-block {
+        display: block;
+        padding-top:0px;
+    }
+    .info-table__td--containg-button{
+        white-space: normal;
+    }
+    .submit-button {
+        width: 80px;
+        padding: 2px;
+        font-size: 0.8rem;
+    }
+    .submit-button__reservation-list {
+        width: 50px;
+        height: 30px;
+    }
+}
+
+@media screen and (max-width: 378px){
+    .info-table__td--containg-button{
+        white-space: normal;
+    }
+    .submit-button {
+        width: 80px;
+        padding: 2px;
+        font-size: 0.8rem;
+    }
+    .submit-button__reservation-list {
+        width: 50px;
+        height: 30px;
+    }
+    .page-title span{
+        font-size: 1.1rem;
+    }
+}

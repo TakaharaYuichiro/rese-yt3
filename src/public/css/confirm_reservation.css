@@ -102,7 +102,11 @@
   background-color: transparent;
 }
 
-.confirm-table__text input, .confirm-table__text span {
+.confirm-table__text ul {
+  padding-left: 10px;
+}
+
+.confirm-table__text input, .confirm-table__text span, .confirm-table__text li{
   width: 100%;
   outline: none;
   border: none;
@@ -122,5 +126,14 @@
 /* =================================== */
 @media screen and (max-width: 768px){
 
+
+}
+
+@media screen and (max-width: 428px){
+    .confirm-table__header {
+        padding: 15px 0px;
+        width: auto;
+        max-width: 100px;
+      }
 
 }

@@ -1,0 +1,50 @@
+
+/* =================================== */
+/* ヘッダー（メインメニュー、ページタイトル、ユーザー名） */
+/* =================================== */
+.header-container{
+    display: grid;
+    width: 100%;
+    height: 60px;
+    grid-template-columns: minmax(150px, 20%) 1fr;
+    grid-template-rows: 100%;
+    align-items: center;
+}
+.header-container__1st-block{
+    grid-column: 1;
+    height: 100%;
+}
+.header-container__2nd-block {
+    grid-column: 2;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    padding: 5px 0 0 0;
+}
+.page-title {
+    white-space: nowrap;
+}
+.page-title span {
+    color: #8B7969;
+    font-weight: 900;
+    font-size: 1.4rem;
+}
+.user-name__content {
+    display: flex;
+    white-space: nowrap;
+}
+.user-name__content span{
+    color: #8B7969;
+}
+
+
+/* =================================== */
+/* レスポンシブデザイン対応 */
+/* =================================== */
+@media screen and (max-width: 768px){
+    .header-container__2nd-block {
+        display: block;
+        padding:  0;
+    }
+}

@@ -11,19 +11,19 @@
 				<h2>確認メールを送信しました</h2>
 			</div>
 			<div class="main-form__content main-content">
-				<p>{{auth()->user()['name']}}さんのメールアドレス宛に「【Atte】メールアドレスの確認」として確認メールを送信しました。</p>
+				<p>{{auth()->user()['name']}}さんのメールアドレス宛に「【Rese】メールアドレスの確認」として確認メールを送信しました。</p>
 				<p>メールに記載されているURLリンクをクリックして、会員登録を完了させてください。</p>
 			</div>
 			<div class="main-form__content">
 				<p>もし、確認メールが届いていない場合は、次のボタンを押して、リンク先で確認メールを送信してください。</p>
 				<button><a href="/email/resend_verify_email">確認メール再送信画面へ</a></button>
 			</div>
-			<div class="main-form__content">
-				<p>会員登録を中止する場合は、次のボタンをクリックしてください。</p>
-				<button><a href="/email/reset">会員登録を中止する</a></button>
-			</div>
+            <div class="main-form__content main-form__content__addition">
+                <p>ログインせずゲストユーザーとしてサイトを閲覧する場合は、次のボタンをクリックしてください。</p>
+                <button><a href="/email/resetAndToHome">ゲストユーザー</a></button>
+            </div>
 		</div>
-		
+
 	@else
 		<div class="main-form">
 			<div class="main-form__title">
@@ -43,8 +43,8 @@
 			</div>
 
 			<div class="main-form__content">
-				<p>会員登録を中止する場合は、次のボタンをクリックしてください。</p>
-				<button><a href="/email/reset">会員登録を中止する</a></button>
+				<p>ログインせずゲストユーザーとしてサイトを閲覧する場合は、次のボタンをクリックしてください。</p>
+				<button><a href="/email/resetAndToHome">ゲストユーザー</a></button>
 			</div>
 		</div>
 	@endif

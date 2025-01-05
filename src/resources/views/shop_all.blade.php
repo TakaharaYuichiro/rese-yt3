@@ -1,67 +1,62 @@
 @extends('layouts.app')
 
 @section('css')
-  <link rel="stylesheet" href="{{ asset('css/shop_all.css') }}" />
-  <link rel="stylesheet" href="{{ asset('css/menu.css') }}" />
-@endsection
-
-@section('utilities')
-  @include('layouts.utility')
+    <link rel="stylesheet" href="{{ asset('css/shop_all.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/menu.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/common/header.css') }}" />
 @endsection
 
 @section('content')
+<?php
+    $prefCodes = App\Consts\CommonConst::PREF_CODE;
+    $genres = App\Models\Genre::get();
+?>
 
-<div class="form-content">
-    <div class="form-header">
-        <div class="form-header__1st-block">
-            @include('layouts.menu')
-        </div>
-        
-        <div class="form-header__2nd-block">
-            <div class="user-name__container">
-                <div class="user-name__content">
-                    <span class="material-icons">person</span>
-                    <span id="user-name__text">
-                        {{$profile['name']==''? 'ログインしていません': $profile['name']. 'さん' }}
-                    </span>
-                </div>
-            </div>
-            <div class="search-section">       
-                <form  class="search-form" id="submit_form" action="/search" method="post">
-                    @csrf
-                    <div class="search-item search-item--category">
-                        <select class="submit_item" name="area_index">
-                            {{-- selectの値を保持する。??はnull合体演算子  https://qiita.com/yoshitaro-yoyo/items/28fbe9a6dc84d9cada03 --}}
-                            <option value="00" selected @if(old('area_index', $selectedItems['areaIndex'] ?? '') == '00') selected @endif>{{old('area_index')}} All area</option>
-                            @foreach($prefCodes as $key => $val)
-                                <option value="{{$key}}" @if(old('area_index', $selectedItems['areaIndex'] ?? '') == $key) selected @endif>{{$val}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-    
-                    <div class="search-item search-item--category">
-                        <select class="submit_item" name="genre_id" >
-                            <option value="" selected @if(old('genre_id', $selectedItems['genreId'] ?? '') == "") selected @endif>{{old('genre_id')}} All genre</option>
-                            @foreach($genres as $genre)
-                                <option value="{{$genre['id']}}" @if(old('genre_id', $selectedItems['genreId'] ?? '') == $genre['id']) selected @endif>{{$genre['genre']}}</option>
-                            @endforeach
-                        </select>
-                    </div>
+<div class="main-container">
+    @include('layouts.header', ['pageTitle'=>''])
 
-                    <div class="search-item search-item--keyword">
-                        <span class="material-icons">search</span>
-                        <input type="text" name="keyword" placeholder="Search ..." value="{{old('keyword', $selectedItems['keyword'] ?? '')}}"/>
-                    </div>
-                </form>
+    <div class="search-container">       
+        <form  class="search-form" id="submit_form" action="/search" method="get">
+            <div class="search-item search-item--category">
+                <select class="submit_item" name="area_index">
+                    {{-- selectの値を保持する。??はnull合体演算子  https://qiita.com/yoshitaro-yoyo/items/28fbe9a6dc84d9cada03 --}}
+                    <option value="00" selected @if(old('area_index', $selectedItems['areaIndex'] ?? '') == '00') selected @endif>{{old('area_index')}} All area</option>
+                    @foreach($prefCodes as $key => $val)
+                        <option value="{{$key}}" @if(old('area_index', $selectedItems['areaIndex'] ?? '') == $key) selected @endif>{{$val}}</option>
+                    @endforeach
+                </select>
             </div>
-        </div>
-       
+
+            <div class="search-item search-item--category">
+                <select class="submit_item" name="genre_id" >
+                    <option value="" selected @if(old('genre_id', $selectedItems['genreId'] ?? '') == "") selected @endif>{{old('genre_id')}} All genre</option>
+                    @foreach($genres as $genre)
+                        <option value="{{$genre['id']}}" @if(old('genre_id', $selectedItems['genreId'] ?? '') == $genre['id']) selected @endif>{{$genre['genre']}}</option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div class="search-item search-item--keyword">
+                <span class="material-icons">search</span>
+                <input type="text" name="keyword" placeholder="Search ..." value="{{old('keyword', $selectedItems['keyword'] ?? '')}}"/>
+            </div>
+        </form>
     </div>
+
+       
+
     
     <div class="panel-section">
+        @empty($shops)
+            <div class="empty-message">店舗情報を取得できませんでした</div>
+        @endempty
         @foreach($shops as $shop)
         <div class="panel-section__item">
-            <img src="{{asset('storage/'. $shop['image_filename'])}}">
+            @if($shop['image_filename']!="")
+                <img src="{{asset('storage/'. $shop['image_filename'])}}">
+            @else
+                <img src="{{asset('storage/test_img/noimage.png')}}">
+            @endif
             <div class="panel-section__item--content">
                 <div class="panel-section__item--name">{{$shop['name']}}</div>
                 <div class="panel-section__item--tag">
@@ -105,17 +100,6 @@
             submitForm.submit();
         })
     }
-
-    // // ユーザー名を表示
-    // const userNameTextElement = document.getElementById('user-name__text');
-    // const userName1 = '<?php echo $profile['name']; ?>';
-    // let userNameText = '';
-    // if(userName1 === '') {
-    //     userNameText = 'ログインしていません';
-    // } else {
-    //     userNameText = userName + 'さん';
-    // }
-    // userNameTextElement.innerHTML = userNameText;
 </script>
 @endsection
 

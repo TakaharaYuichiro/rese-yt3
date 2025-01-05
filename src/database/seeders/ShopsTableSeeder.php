@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use App\Models\Shop;
+use DateTime;
 
 class ShopsTableSeeder extends Seeder
 {
@@ -170,12 +171,14 @@ class ShopsTableSeeder extends Seeder
             ],
         ];
 
+        $data = [];
         foreach($params as $param) {
             if (!(Shop::where('name', $param['name'])->exists())){
-                DB::table('shops')->insert($param);
+                $param['created_at'] =  new DateTime();
+                $param['updated_at'] =  new DateTime();
+                $data[] = $param;
             }
         }
-
-
+        DB::table('shops')->insert($data);
     }
 }

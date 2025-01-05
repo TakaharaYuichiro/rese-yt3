@@ -21,6 +21,7 @@ class CreateReservationsTable extends Migration
             $table->integer('people_counts');
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->text('remarks')->nullable();
+            $table->string('charge_id')->nullable();
             $table->timestamps();
         });
     }

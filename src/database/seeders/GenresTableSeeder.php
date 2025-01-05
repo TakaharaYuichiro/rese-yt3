@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use App\Models\Genre;
+use DateTime;
 
 class GenresTableSeeder extends Seeder
 {
@@ -25,7 +26,11 @@ class GenresTableSeeder extends Seeder
 
         foreach($params as $param) {
             if (!(Genre::where('genre', $param)->exists())){
-                DB::table('genres')->insert(['genre' => $param]);
+                DB::table('genres')->insert([
+                    'genre' => $param,
+                    'created_at' => new DateTime(),
+                    'updated_at' => new DateTime(),
+                ]);
             }
         }
 

@@ -1,201 +1,375 @@
-.form-content {
-  margin: 0 auto;
-  padding: 15px 15px 60px 15px;
-  max-width: 1230px;
-}
-.form-header{
-  display: grid;
-  width: 100%;
-  height: 80px;
-  grid-template-columns: minmax(70px, 20%) 1fr;
-  grid-template-rows: 100%;
-  align-items: center;
-}
-.form-header__1st-block{
-  grid-column: 1;
-  height: 100%;
-}
-.form-header__2nd-block {
-  grid-column: 2;
-  height: 100%;
-}
-.main-container{
-  padding: 15px 0;
-  display: grid;
-  grid-template-columns: 1.3fr minmax(350px, 1fr);
-  height: 100vh;
+.main-container {
+    margin: 0 auto;
+    padding: 15px 15px 60px 15px;
+    max-width: 1230px;
 }
 
-.sub-container {
-  width: 100%;
-  height: 100%;
+.sub-container{
+    padding: 15px 0;
+    display: grid;
+    grid-template-columns: 1fr 450px;
+    grid-template-rows: auto 1fr;
 }
-.sub-container:nth-child(1) {
-  padding-right: 10px;
+
+.content-container {
+    width: 100%;
+}
+
+.content-containerA {
+	grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    padding-right: 10px;
+    padding-bottom: 20px;
+}
+.content-containerB {
+	grid-column: 2 / 3;
+    grid-row: 1 / 3;
+}
+.content-containerC {
+	grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    padding-right: 10px;
 }
 
 /* =================================== */
-/* user name */
+/* alert, message */
 /* =================================== */
-.user-name__container {
-  padding: 5px 0;
-  display: flex;
-  justify-content: right;
+.message-container--success{
+    padding: 10px ;
+    background:#d1e7dd ;
+    border-color: #bcd5c9;
+    color: #0f5132
 }
-.user-name__content {
-  display: flex;
-  align-items: center;
-  white-space: nowrap;
-  background: #FBFBFB;
-  padding: 5px 10px;
+.message-container--danger{
+    padding: 10px 0;
+    border-color: #f5c2c7;
+    background-color: #f8d7da;
+    color: #842029;
 }
-.user-name__container span:nth-child(2) {
-  margin-left: 10px;
+.message-container--danger ul{
+    margin:0;
 }
-.user-name__container span{
-  color: #666;
-}
+
 
 /* =================================== */
 /* 店舗詳細表示画面（左側） */
 /* =================================== */
-
 .shop-detail {
-  width: 100%;
-  padding: 10px;
+    width: 100%;
+    padding: 10px 0;
 }
 
 .shop-detail__name {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    height: 50px;
 }
-.shop-detail__name button {
-  width: 30px;
-  height: 30px;
-  border-radius: 5px ;
-  border: none;
-  background: white;
-  box-shadow: 2px 2px 2px gray;
+.shop-detail__back-button {
+    width: 30px;
+    height: 30px;
+    border-radius: 5px ;
+    border: none;
+    background: white;
+    box-shadow: 2px 2px 2px gray;
+    padding: 0;
+}
+.shop-detail__back-button a{
+    display: block;
+    text-decoration: none;
 }
 
-.shop-detail__name span {
-  margin-left: 10px;
-  text-align: left;
-  color: black;
-  font-weight: bold;
-  font-size: 1.5rem;
+.shop-detail__name-text {
+    margin-left: 10px;
+    text-align: left;
+    color: black;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.shop-detail__favorite-form {
+    margin-left: 30px;
+
+
+}
+.shop-detail__favorite-button {
+    border: none;
+    display: flex;
+    align-items: center;
+    background: transparent;
+
+
 }
 
 .shop-detail img {
-  width: 100%;
+    width: 100%;
 }
 
 .shop-detail__content {
-  text-align: left;
-  font-size: 0.9rem;
-  color: #333;
-  margin: 20px 0;
+    text-align: left;
+    font-size: 0.9rem;
+    color: #333;
+    margin: 20px 0;
 }
-
 
 .shop-detail--button {
-  margin: 10px 0 5px 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    margin: 10px 0 5px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 .form-grid button {
-  width: 100px;
-  height: 30px;
-  border-radius: 5px;
-  background: #305DFF;
-  color: white;
-  border: none;
-  font-size: 0.7rem;
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+    background: #305DFF;
+    color: white;
+    border: none;
+    font-size: 0.7rem;
 }
 .material-icons{
-  color: lightgray;
+    color: lightgray;
 }
-
 
 /* =================================== */
 /* 予約入力画面（右側） */
 /* =================================== */
 .reservation {
-  background:#305DFF ;
-  height: 80%;
-  border-radius: 5px;
-  position: relative;
+    background:#305DFF ;
+    min-height: 80vh;
+    border-radius: 5px;
+    position: relative;
 }
 .reservation__inputs{
-  display: block;
-  padding: 10px 10px 100px 10px;
+    display: block;
+    padding: 10px 10px 10px 10px;
 }
 .reservation__title {
-  color: white;
-  font-size: 1.2rem;
-  margin-bottom: 20px;
+    border-bottom: 1px solid white;
+    margin-bottom: 20px;
+}
+.reservation__title span{
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 550;
 }
 .reservation__content{
-  display: flex;
-  align-items: center;
-  margin: 10px 0;
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
 }
 .reservation__content--title {
-  margin-right: 20px;
-  width: 80px;
-  color: white;
+    margin-right: 20px;
+    width: 80px;
+    color: white;
 }
 .reservation__content input, .reservation__content select {
-  height: 30px;
-  width: 180px;
-  border: none;
-  border-radius: 5px;
+    height: 30px;
+    width: 180px;
+    border: none;
+    border-radius: 5px;
 }
 .reservation__button-container {
-  position:absolute;
-  bottom: 0;
-  width: 100%;
-  height: 50px;
-  background: #0438FF;
+    position:absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    background: transparent;
+    border-radius: 0 0 5px 5px;
 
-  border-radius: 0 0 5px 5px;
+    display: flex;
+    justify-content: space-between;
 }
-.reservation__button-container button {
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  width:100%;
-  height: 100%;
-  font-weight: 800;
-  font-size: 1.1rem;
-  color: white;
-  background: transparent;
-  border: none;
+.reservation__button--submit {
+    width:100%;
 
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: white;
+    background: #0438FF;
+    border: none;
+    border-radius: 3px;
+    margin: 5px;
 }
-.reservation__button-container:hover {
-  background: #7992f8;
+.reservation__button--delete {
+    width:50%;
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: white;
+    background: #BA370D;
+    border: none;
+    border-radius: 3px;
+    margin: 5px;
+}
+
+.reservation__button--submit:hover, .reservation__button--delete:hover{
+    background: #7992f8;
+}
+
+.reservation__button-container--not-logged {
+    position:absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    background: gray;
+    border-radius: 0 0 5px 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.reservation__button-container--not-logged span{
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: #ddd;
 }
 
 .reservation__content--current-value span{
-  font-weight: bold;
-  color: #eee;
+    font-weight: bold;
+    color: #eee;
+}
+
+.reservation__inputs--error-message {
+    margin-left: 20px;
+}
+.reservation__inputs--error-message span{
+    color: #f88;
+}
+
+.reservation__content--message {
+    color:white;
+    padding:5px 0 5px 15px;
+    display: flex;
+}
+
+.reservation__bottom-margin{
+    height: 80px;
+}
+/* =================================== */
+/* 予約のコースメニュー選択 */
+/* =================================== */
+.reservation__course {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.reservation__course--title span {
+    color:white;
+}
+.reservation__course--table {
+    margin: 5px 0 5px 10px;
+    color:white;
+}
+.reservation__course--table th{
+    padding: 3px auto;
+    border: 1px solid #ddd;
+    font-weight: 600;
+    font-size:0.9rem;
+}
+.reservation__course--header__name {
+    width: 200px;
+}
+.reservation__course--header__price {
+    width: 120px;
+}
+.reservation__course--header__quantity {
+    width: 100px;
+}
+.reservation__course--table td{
+    padding: 3px auto;
+    border: 1px solid #ddd;
+    font-size: 0.9rem;
+}
+.reservation__course--data__name, .reservation__course--data__quantity {
+    text-align: center;
+}
+.reservation__course--data__quantity span {
+    text-align: center;
+    font-size: 0.8rem;
+}
+.reservation__course--data__price {
+    text-align: right;
+}
+.reservation__course--input-quantity {
+    width: 40px;
+    text-align: right;
+}
+
+#total-price {
+    color:white;
+    font-weight: bold;
+}
+
+/* =================================== */
+/* レビュー(このお店の評価) */
+/* =================================== */
+.evaluation {
+    width: 100%;
+    padding: 10px 0;
+    margin-bottom: 30px;
+}
+.evaluation__title {
+    color: #666;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+.evaluation__summary {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    margin-bottom: 20px
+}
+.material-icons.evaluation-stars {
+    font-size: 1.3rem; 
+}
+.evaluation__summary__score {
+    margin-left: 10px;
+    font-size: 1.05rem;
+    color:#D00100;
+}
+.evaluation__summary__reviewer-counts {
+    margin-left: 10px;
+    font-size: 0.9rem;
+}
+.evaluation__content {
+    padding: 10px 0;
+}
+.evaluation__content__value {
+    display: flex;
+    align-items: center;
+}
+.material-icons.evaluation__content__stars {
+    font-size: 1rem; 
+}
+.evaluation__content__created-at {
+    margin-left: 15px;
+    font-size: 0.8rem;
 }
 
 /* =================================== */
 /* レスポンシブデザイン対応 */
 /* =================================== */
 @media screen and (max-width: 768px){
-  .main-container{
-    display: block;
-    height: auto;
-  }
-  .sub-container{
-    width: 100%;
-  }
+    .sub-container{
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto 1fr;
+        height: auto;
+    }
+  
+    .content-containerA {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+        padding-right: 0px;
+    }
+    .content-containerB {
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+    }
+    .content-containerC {
+        grid-column: 1 / 2;
+        grid-row: 3 / 4;
+        padding-right: 0px;
+    }
 
-
+    .reservation {
+        min-height: auto;
+    }
 }

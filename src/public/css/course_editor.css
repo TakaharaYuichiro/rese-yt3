@@ -1,0 +1,117 @@
+.main-container {
+    margin: 0 auto;
+    padding: 15px;
+    max-width: 1230px;
+}
+
+
+
+/* =================================== */
+/* alert, message */
+/* =================================== */
+.message-container--success{
+    padding: 10px ;
+    background:#d1e7dd ;
+    border-color: #bcd5c9;
+    color: #0f5132
+}
+.message-container--danger{
+    padding: 10px 0;
+    border-color: #f5c2c7;
+    background-color: #f8d7da;
+    color: #842029;
+}
+.message-container--danger ul{
+    margin:0;
+}
+
+
+/* =================================== */
+/*  */
+/* =================================== */
+.form-submit-button__container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin-top:20px;
+}
+.form-submit-button__container button {
+    width: 250px;
+    height: 60px;
+    background: #8B7969;
+    color: #fff;
+    border: none;
+    font-size: 1.2rem;
+}
+.form-submit-button__container button:hover {
+    background: #e5af9d;
+    color: #000;
+    cursor: pointer;
+}
+
+
+/* =================================== */
+/* コースメニュー情報のテーブル */
+/* =================================== */
+.info-table{
+    width: 100%;
+}
+.info-table th{
+    width: 120px;
+    font-size: 16px;
+    padding: 10px 5px;
+    background: #8B7969;
+    color:#fff;
+}
+.info-table td{
+    padding: 0px 5px;
+    border-bottom: 1px solid #aaa;
+}
+.info-table input, .info-table textarea,  .info-table select {
+    width: 100%;
+    margin:0 5px;
+    padding: 10px;
+    border: none;
+    appearance: none;
+    height: 40px;
+    background: #FCFCFC;
+    color:#8B7969;
+}
+.info-table textarea {
+    height: 180px;
+}
+.info-table select {
+    max-width: 300px;
+}
+
+.extra-buttons-container {
+    margin: 20px 0;
+    display: grid;
+    justify-content: center;
+}
+.extra-form {
+    margin: 0 10px 10px;
+}
+.extra-button {
+    width: 250px;
+    height: 40px;
+    background: #a69b93;
+    color: #fff;
+    border: none;
+    font-size: 1.0rem;
+}
+.extra-button:hover {
+    background: #e5af9d;
+    color: #000;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px){
+
+}
+
+@media screen and (max-width: 378px){
+
+}

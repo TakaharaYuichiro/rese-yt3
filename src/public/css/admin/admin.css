@@ -1,0 +1,341 @@
+.main-container {
+    margin: 0 auto;
+    padding: 15px;
+    max-width: 1230px;
+}
+
+/* =================================== */
+/* alert, message */
+/* =================================== */
+.message-container{
+    width: 100%;
+    padding: 5px 2px;
+}
+.message-container--success{
+    padding: 10px ;
+    background:#d1e7dd ;
+    border-color: #bcd5c9;
+    color: #0f5132
+}
+.message-container--danger{
+    padding: 10px 10px 5px 10px;
+    border-color: #f5c2c7;
+    background-color: #f8d7da;
+    color: #842029;
+}
+.message-container--danger ul{
+    margin:0;
+}
+
+
+/* =================================== */
+/* search-section */
+/* =================================== */
+.search-section{
+    width: 100%;
+    margin: 10px 0 10px;
+    padding: 5px 2px;
+}
+
+.search-form{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin:0;
+    width: 100%;
+    padding:0;
+}
+
+.search-form__item{
+    height: 40px;
+    background:#FBFBFB;
+    border: solid 1px #E3DED9;
+    color:#8B7969;
+    margin:0 5px;
+    padding:2px 5px;
+}
+
+.search-form__item--keyword{
+   flex-grow: 2;
+   margin-left: 0;
+}
+.search-form__item--gender{
+    flex-grow: 1;
+}
+.search-form__item--category{
+    flex-grow: 2;
+}
+.search-form__item--date{
+    flex-grow: 2;
+}
+
+.search-form__button{
+    width: 80px;
+    background: #8B7969;
+    color: #fff;
+    height: 40px;
+    font-size: 12px;
+    border:none;
+    font-weight: bold;
+    margin:0 5px;
+    border-radius: 3px;
+}
+.search-form__item--reset{
+    margin-right:0;
+    background: #D9C6B5;
+}
+.search-form__button:hover{
+    background: #c7c0ba;
+}
+
+/* =================================== */
+/* お知らせメールボタン */
+/* =================================== */
+.utility-container {
+    padding: 0 5px 5px;
+}
+
+.utility-container button{
+    background: #8B7969;
+    color: #fff;
+    font-size: 1rem;
+    border-width: 0;
+    border-radius: 3px;
+    font-weight: 500;
+    padding: 8px 15px;
+
+    display: flex;
+}
+.utility-container button:hover {
+    background: #c7c0ba;
+}
+
+/* =================================== */
+/* list-section */
+/* =================================== */
+.list-section{
+    margin: 0 auto ;
+    padding: 5px 2px;
+    max-width: 1230px;
+}
+.list-table{
+    width: 100%;
+}
+.list-table__header{
+    font-size: 16px;
+    padding: 10px 5px;
+    background: #8B7969;
+    color:#fff;
+}
+
+.list-table__row{
+    border: 1px solid #8B7969;
+    text-align: center;
+}
+.list-table__td{
+    padding: 10px 2px;
+}
+.list-table__td--containg-button{
+    width: 0;
+    white-space: nowrap;
+    padding: 1px;
+}
+.list-table__row td:nth-child(1){
+    border-left: 1px solid #8B7969;
+    border-right: 1px solid #8B7969;
+}
+.list-table__row td:nth-child(even){
+    border-right: 1px solid #8B7969;
+}
+
+.list-table__button-send-mail, .list-table__button--change-role, .list-table__button-detail {
+    width: 35px;
+    height: 35px;
+    padding: 0;
+    background: transparent;
+    border-width: 0;
+    border-radius: 3px;
+}
+.list-table__button-send-mail span, .list-table__button--change-role span, .list-table__button-detail span{
+    color: #8B7969;
+    font-size: 1.5rem;
+}
+.list-table__button-send-mail:hover, .list-table__button--change-role:hover, .list-table__button-detail:hover{
+    background: #c7c0ba;
+}
+
+/* =================================== */
+/* optional-section */
+/* =================================== */
+.optional-section{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 20px 0;
+    align-items: center;
+}
+
+.optional-section__pagination {
+    display: flex;
+    justify-content: center;
+}
+.pagination {
+    display: inline-block;
+    padding: 0;
+    margin: 0;   
+}
+.pagination li {
+  display: inline;
+  margin-left: 4px;
+}
+.pagination li a, .pagination li span {
+    color: #2f3859;
+    color:#82756A;
+    padding: 8px 8px;
+    text-decoration: none;   
+}
+.pagination li a.active {
+    background-color: #82756A;
+    color: white;
+}
+ul.pagination li a:hover:not(.active) {
+    background-color: #e1e7f0;
+}
+
+/* =================================== */
+/* モーダルウィンドウ */
+/* =================================== */
+.modal-window {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.2);
+}
+
+.modal-content {
+    background-color: #f4f4f4;
+    margin:  auto;
+    width: 750px;
+    min-width: 475px;
+    box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2),0 7px 20px 0 rgba(0,0,0,0.17);
+    animation-name: modalopen;
+    animation-duration: 0.3s;
+    border: solid 2px #8B7969;
+    padding: 5px;
+}
+
+@keyframes modalopen {
+    from {opacity: 0}
+    to {opacity: 1}
+}
+
+.modal-header {
+    padding: 3px 15px;
+    display: flex;
+    justify-content:space-between;
+}
+.modal-header__user-name--text {
+    font-size: 1.5rem;
+}
+
+.modal-close{
+    display: block;
+    width: 40px;
+    height: 40px;
+    background: #e9e9e9;
+    position: relative;
+    border-radius:100%;
+}
+.modal-close::before, .modal-close::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 3px; 
+    height: 22px; 
+    background: #666; 
+    transform: translate(-50%,-50%) rotate(45deg);
+}
+.modal-close::after {
+    transform: translate(-50%,-50%) rotate(-45deg);
+}
+.modal-close:hover{
+    background: #ccc;
+    color: #FFF;
+    cursor: pointer;
+}
+
+.modal-body {
+    padding: 15px;
+    color: #8B7969;
+}
+
+.modal-body__content {
+    display: flex;
+}
+
+.modal-body__content-header {
+    width: 150px;
+}
+
+.modal-body__content_vertical {
+    display: block;
+    padding: 5px 10px 15px;
+    
+}
+.modal-body__content_vertical-header {
+    width: 100%;
+}
+.modal-body__content_vertical-data {
+    width: 100%;
+    margin-left: 10px;
+    display: block;
+}
+.modal-body__content_vertical-data--input {
+    width: 100%;
+    
+}
+.modal-body__content_vertical-data--textarea{
+    width: 100%;
+}
+
+.modal-form{
+    width: 100%;
+    align-items: center;
+}
+.modal-form__button {
+    width: 100%;
+    padding: 5px;
+    display:flex;
+    justify-content: center;
+}
+.modal-form button{
+    width: 80px;
+    height: 30px;
+    background:#BA370D;
+    color:#fff;
+    font-weight: bold;
+    border: none;
+}
+.modal-form button:hover{
+    background: #e5af9d;
+    color: #000;
+    cursor: pointer;
+}
+
+
+
+@media screen and (max-width: 768px){
+    .header-container__2nd-block {
+        display: block;
+        padding-top:0px;
+    }
+    .modal-content{
+        width: 90%;
+    }
+}

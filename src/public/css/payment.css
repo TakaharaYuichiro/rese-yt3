@@ -1,0 +1,104 @@
+.main-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.main-content__window {
+    margin: auto;
+    padding: 0px;
+    max-width: 1230px;
+  
+    width: 400px;
+    background: white;
+    box-shadow: 6px 2px 10px gray;
+    border-radius: 4px;
+}
+
+.header-container {
+    padding: 15px 15px;
+    background: #305DFF;
+    
+}
+.header-text {
+    font-size: 1.2rem;
+    color: white;
+}
+
+.main-form-container {
+    padding: 15px;
+    color: #8B7969;
+}
+.payment-content {
+    margin: 10px 0;
+}
+.payment-content span {
+    color: #333; 
+}
+.card-content {
+    margin: 5px 0;
+}
+.card-content label {
+    font-weight: bold;
+    color: #666;
+}
+
+
+.button-container {
+    display: flex;
+    justify-content: right;
+    margin-top: 20px;
+}
+
+.button-container button {
+    width: 80px;
+    height: 30px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 10%;
+    background: #305DFF; 
+    color: #fff;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+.button-container button:hover{
+    background: #e5af9d;
+    color: #000;
+    cursor: pointer;
+}
+
+
+/* =================================== */
+/* alert, message */
+/* =================================== */
+.message-container--success{
+    padding: 10px ;
+    background:#d1e7dd ;
+    border-color: #bcd5c9;
+    color: #0f5132
+  }
+  .message-container--danger{
+    padding: 10px 0;
+    border-color: #f5c2c7;
+    background-color: #f8d7da;
+    color: #842029;
+  }
+  .message-container--danger ul{
+    margin:0;
+  }
+  
+
+  
+/* =================================== */
+/* ページの説明 */
+/* =================================== */
+.description {
+    padding:10px;
+    background: #FFF3CC;
+    font-size: 0.9rem;
+}
+
+

@@ -3,6 +3,12 @@ namespace App\Consts;
 
 class CommonConst
 {
+    public const ROLE = [
+        "1"=>"管理者",
+        "11"=>"店舗代表者",
+        "21"=>"利用者",
+    ];
+
     public const PREF_CODE = [
         "01"=>"北海道",
         "02"=>"青森県",

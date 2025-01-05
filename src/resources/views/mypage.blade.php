@@ -1,65 +1,54 @@
 @extends('layouts.app')
 
 @section('css')
-  <link rel="stylesheet" href="{{ asset('css/mypage.css') }}" />
-  <link rel="stylesheet" href="{{ asset('css/menu.css') }}" />
-@endsection
-
-@section('utilities')
-  @include('layouts.utility')
+    <link rel="stylesheet" href="{{ asset('css/mypage.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/menu.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/common/header.css') }}" />
 @endsection
 
 @section('content')
+<div class="main-container">
+    @include('layouts.header', ['pageTitle'=>'My Page'])
 
-<div class="form-content">
-    <div class="form-header">
-        <div class="form-header__1st-block">
-            @include('layouts.menu')
-        </div>
-        <div class="form-header__2nd-block">
-            <div class="user-name__container">
-                <div class="user-name__content">
-                    <span class="material-icons">person</span>
-                    <span id="user-name__text">
-                        {{$profile['name']==''? 'ログインしていません': $profile['name']. 'さん' }}
-                    </span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="main-container">
-        <div class="sub-container">
-            <div class="content-header">
-    
-            </div>
-
-            <div class="reservation-status">
-                <div class="reservation-status__title">
+    <div class="sub-container">
+        <div class="block-container">
+            <div class="content-container">
+                <div class="content-container--title">
                     <span>予約状況</span>
                 </div> 
-        
+                <div class="content-container--message">
+                    @if (count($reservations) > 0)
+                        <span>変更ボタンで予約変更・取り消しができます。</span><br>
+                        <span>但し本日分は、変更・取り消しできません。</span>
+                    @else
+                        <span>予約はありません</span>
+                    @endif
+                </div>
+
                 @foreach($reservations as $reservation)
-                    <div class="reservation">
+                    <div class="reservation-status" style="background:{{$reservation['is_payment_required']? '#FF6F61': '#305DFF'}};">
                         <div class="reservation-header">
                             <div class="reservation-header__id">
                                 <span class="material-icons">schedule</span>
-                                <span>{{"予約". $reservation->id}}</span>
+                                <span>{{"予約番号". $reservation->id}}</span>
                             </div>
-                            <form class="reservation-header__change" action="/reservation/reservation_change" method="post">
-                                @csrf
-                                <input type="hidden" name="reservation_id" value="{{ $reservation->id}}"/>
-                                <input type="hidden" name="shop_id" value="{{ $reservation->shop_id}}"/>
-                                <button class="reservation-input-button">変更</button>
-                            </form>
-                            <form class="reservation-header__delete" action="/reservation/delete" method="post">
-                                @csrf
-                                <input type="hidden" name="reservation_id" value="{{ $reservation->id }}"/>
-                                <button class="reservation-delete-button"></button>
-                            </form>
 
+                            <div class="reservation-header__button--container">
+                                @if($reservation['is_payment_required']) 
+                                    <form class="reservation-header__change" action="/reservation_accepted" method="get">
+                                        <input type="hidden" name="reservation_id" value="{{ $reservation->id}}"/>
+                                        <button class="reservation__header--button">支払へ</button>
+                                    </form>
+                                @endif
+
+                                <form class="reservation-header__change" action="/reservation_change" method="get">
+                                    <input type="hidden" name="reservation_id" value="{{ $reservation->id}}"/>
+                                    <input type="hidden" name="shop_id" value="{{ $reservation->shop_id}}"/>
+                                    <button class="reservation__header--button">変更</button>
+                                </form>
+                            </div>
                         </div>
-
+                       
                         <table class="reservation-table">
                             <tr class="reservation-table__row">
                                 <th class="reservation-table__header">店名</th>
@@ -97,31 +86,56 @@
                                     <span>{{ $reservation['people_counts']. '名' }} </span>
                                 </td>
                             </tr>
+
+                            <tr class="reservation-table__row">
+                                <th class="reservation-table__header">料金</th>
+                                <td class="reservation-table__text">
+                                    <span>{{ number_format($reservation['total_price']). '円' }} </span>
+                                </td>
+                            </tr>
+
+                            <tr class="reservation-table__row">
+                                <th class="reservation-table__header">支払状況</th>
+                                <td class="reservation-table__text">
+                                    <span>{{ $reservation['payment_status_message'] }} </span>
+                                </td>
+                            </tr>
                         </table>
                     </div>
                 @endforeach
             </div>
 
-            <div class="reservation-status">
-                <div class="reservation-status__title">
-                    <span>来店済み</span>
+            <div class="content-container">
+                <div class="content-container--title">
+                    <span>履歴</span>
                 </div> 
-        
+                
+                @if (count($reservation_histories) == 0)
+                    <div class="content-container--message">
+                        <span>データがありません</span>
+                    </div>
+                @endif
+
                 @foreach($reservation_histories as $reservation)
-                    <div class="reservation-history">
+                    <div class="reservation-status reservation-history">
                         <div class="reservation-header">
                             <div class="reservation-header__id">
                                 <span class="material-icons">check_circle</span>
                                 <span>来店済み</span>
                             </div>
-                            <form class="reservation-header__evaluation" action="/reservation/evaluation" method="post">
+                            <form class="reservation-header__evaluation" action="/evaluation" method="post">
                                 @csrf
+                                <input type="hidden" name="reservation_id" value="{{ $reservation->id}}"/>
+                                <input type="hidden" name="shop_id" value="{{ $reservation->shop_id}}"/>
                                 @if ($reservation->evaluation_score == 0)
-                                    <input type="hidden" name="reservation_id" value="{{ $reservation->id}}"/>
-                                    <input type="hidden" name="shop_id" value="{{ $reservation->shop_id}}"/>
-                                    <button class="reservation-input-button">お店を評価</button>
+                                    <button class="reservation__header--button">お店を評価</button>
                                 @else
-                                    <div><span>あなたの評価点：{{$reservation->evaluation_score}}</span></div>
+                                    <div class="reservation-header__evaluation--score">
+                                        @for ($i=0; $i<5; $i++)
+                                            <span class="material-icons evaluation-score" style="color: {{ ($reservation->evaluation_score < ($i+1))? 'lightgray': 'yellow' }}">star</span>
+                                        @endfor
+                                    </div>
+                                    <button class="reservation__header--button">再評価</button>
                                 @endif
                             </form>
                         </div>
@@ -158,7 +172,7 @@
                             </tr>
 
                             <tr class="reservation-table__row">
-                                <th class="reservation-table__header">予約人数</th>
+                                <th class="reservation-table__header">人数</th>
                                 <td class="reservation-table__text">
                                     <span>{{ $reservation['people_counts']. '名' }} </span>
                                 </td>
@@ -169,39 +183,41 @@
             </div>
         </div>
 
-        <div class="sub-container">
-            <div class="reservation-status">
-                <div class="reservation-status__title">
+        <div class="block-container">
+            <div class="content-container">
+                <div class="content-container--title">
                     <span>お気に入り店舗</span>
                 </div> 
+                @if(count($evaluations)==0)
+                    <div class="content-container--message">
+                        <span>お気に入り店舗はありません</span>
+                    </div>
+                @endif
+
                 <div class="panel-section">
-                    @isset($shops)
-                        @foreach($shops as $shop)
+                    @foreach($evaluations as $evaluation)
                         <div class="panel-section__item">
-                            <img src="{{asset('storage/'. $shop['image_filename'])}}">
+                            @if($evaluation['shop']['image_filename']!="")
+                                <img src="{{asset('storage/'. $evaluation['shop']['image_filename'])}}">
+                            @else
+                                <img src="{{asset('storage/test_img/noimage.png')}}">
+                            @endif
+
                             <div class="panel-section__item--content">
-                                <div class="panel-section__item--name">{{$shop['name']}}</div>
+                                <div class="panel-section__item--name">{{$evaluation['shop']['name']}}</div>
                                 <div class="panel-section__item--tag">
-                                    <span>{{'#'. $shop->getPrefName(); }}</span>
-                                    <span>{{'#'. $shop['genre']['genre']; }}</span>
+                                    <span>{{'#'. $evaluation['shop']->getPrefName(); }}
+                                    <span>{{'#'. $evaluation['shop']['genre']['genre']; }}</span>
                                 </div>
                                 <div class="panel-section__item--button">
-                                    <form action="{{ route('detail',['shop_id' => $shop->id ]) }}" method="get">
+                                    <form action="{{ route('detail',['shop_id' => $evaluation->shop_id ]) }}" method="get">
                                         <button class="panel-section__item--button--detail" type="submit">詳しくみる</button>
                                     </form>
                                     <form action="/mypage/favorite" method="post" id="submit_form">
                                         @csrf
-                                        <input type="hidden" name="shop_id" value="{{$shop['id']}}">
+                                        <input type="hidden" name="shop_id" value="{{$evaluation['shop_id']}}">
                                         <button class="panel-section__item--button--favorite" type="submit">
-                                            @php
-                                                $favorite = false;
-                                                foreach($shop['evaluation'] as $evaluation){
-                                                    if ($evaluation['user_id'] == 1) {
-                                                        $favorite = $evaluation['favorite']; 
-                                                    }
-                                                }
-                                            @endphp
-                                            <span class="material-icons" style="color: {{$favorite? 'red' :'lightgray';}}">
+                                            <span class="material-icons" style="color: {{ $evaluation['favorite']? 'red' :'lightgray';}}">
                                                 favorite
                                             </span>
                                         </button>
@@ -209,14 +225,12 @@
                                 </div>
                             </div>
                         </div>
-                        @endforeach
-                    @endisset
+                    @endforeach
+            
                 </div>
             </div>
         </div>
-    </div>
-
-   
+    </div>   
 </div>
 
 <script>
@@ -235,32 +249,6 @@
             submitForm.submit();
         });
     }
-
-    const reservationDeleteButtons = document.getElementsByClassName("reservation-delete-button");
-    for(let reservationDeleteButton of reservationDeleteButtons) {
-        reservationDeleteButton.addEventListener("click", () => {
-            console.log('予約取り消し');
-            const answer = window.confirm("この予約を取り消してもよろしいですか？");
-            if (answer) {
-                reservationDeleteButton.name='submit';
-            }
-            else {
-                reservationDeleteButton.name='cancel';
-            }
-        });
-    }
-
-    // // ユーザー名を表示
-    // const userNameTextElement = document.getElementById('user-name__text');
-    // const userName1 = '<?php echo $profile['name']; ?>';
-    // let userNameText = '';
-    // if(userName1 === '') {
-    //     userNameText = 'ログインしていません';
-    // } else {
-    //     userNameText = userName + 'さん';
-    // }
-    // userNameTextElement.innerHTML = userNameText;
-
 </script>
 @endsection
 

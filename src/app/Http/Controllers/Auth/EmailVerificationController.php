@@ -25,8 +25,8 @@ class EmailVerificationController extends Controller
 	public function index(Request $request)
 	{
 		return $request->user()->hasVerifiedEmail()
-		? redirect()->intended(RouteServiceProvider::HOME)
-		: view('auth.verify-email-massage');
+            ? redirect()->intended(RouteServiceProvider::HOME)
+            : view('auth.verify-email-massage');
 	}
  
 	/**
@@ -87,12 +87,9 @@ class EmailVerificationController extends Controller
 		return view('auth.verify-email-massage');
 	}
 
-	/**
-	* セッションをリセット
-	* メール確認の操作ができなくなってしまった時に、ユーザーが何もできなくなることを防ぐ
-	*/
-	public function resetSession(){
+	// セッションをリセットしてゲストユーザーとしてホーム画面を開く（メール確認の操作ができなくなってしまった時に、ユーザーが何もできなくなることを防ぐ）
+	public function resetAndToHome(){
 		session()->flush();
-		return redirect()->route('login');
+		return redirect()->route('home');
 	}
 }

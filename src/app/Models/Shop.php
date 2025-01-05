@@ -16,8 +16,7 @@ class Shop extends Model
         return $this->belongsTo(Genre::class);
     }
 
-    public function evaluation()
-    {
+    public function evaluation(){
         return $this->hasMany(Evaluation::class);
     }
 
@@ -37,8 +36,6 @@ class Shop extends Model
                         ->orWhere('content', 'like', '%' . $keyword . '%');
                 });   
             }
-
-            
         }
     }
 
@@ -57,5 +54,4 @@ class Shop extends Model
             }
         }
     }
-
 }

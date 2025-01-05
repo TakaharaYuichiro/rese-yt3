@@ -16,6 +16,9 @@
 .main-form__content{
     margin: 10px 0 35px 0;
 }
+.main-form__content__addition{
+    margin-top: 50px;
+}
 
 .main-form__content p{
     margin:5px 0;

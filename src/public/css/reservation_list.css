@@ -1,0 +1,141 @@
+.main-container {
+    margin: 0 auto;
+    padding: 15px;
+    max-width: 1230px;
+}
+
+/* =================================== */
+/* alert, message */
+/* =================================== */
+.message-container--success{
+    padding: 10px ;
+    background:#d1e7dd ;
+    border-color: #bcd5c9;
+    color: #0f5132
+}
+.message-container--danger{
+    padding: 10px 0;
+    border-color: #f5c2c7;
+    background-color: #f8d7da;
+    color: #842029;
+}
+.message-container--danger ul{
+    margin:0;
+}
+
+/* =================================== */
+/* search-section */
+/* =================================== */
+.search-section{
+    width: 100%;
+    margin-bottom: 20px;
+    padding:0 1%;
+}
+
+.search-form{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin:0;
+    width: 100%;
+    padding:0;
+}
+
+.search-form__item{
+    height: 40px;
+    background:#FBFBFB;
+    border: solid 1px #E3DED9;
+    color:#8B7969;
+    margin:0 5px;
+    padding:2px 5px;
+}
+
+.search-form__item--keyword{
+   flex-grow: 2;
+   margin-left: 0;
+}
+.search-form__item--gender{
+    flex-grow: 1;
+}
+.search-form__item--category{
+    flex-grow: 2;
+}
+.search-form__item--date{
+    flex-grow: 2;
+}
+
+.search-form__button{
+    width: 80px;
+    background: #8B7969;
+    color: #fff;
+    height: 40px;
+    font-size: 12px;
+    border:none;
+    border-radius: 3px;
+    font-weight: bold;
+    margin:0 5px;
+}
+.search-form__item--reset{
+    margin-right:0;
+    background: #D9C6B5;
+}
+.search-form__button:hover{
+    background: #c7c0ba;
+}
+
+/* =================================== */
+/* 店舗名 */
+/* =================================== */
+.shop-name-container {
+    margin: 0 auto ;
+    padding: 10px 5px;
+}
+.shop-name-container span {
+    font-size: 1.4rem;
+}
+
+/* =================================== */
+/* list-section */
+/* =================================== */
+.list-section{
+    margin: 0 auto ;
+    padding: 0 5px;
+    max-width: 1230px;
+}
+
+.list-table{
+    width: 100%;
+}
+
+.list-table__header{
+    font-size: 16px;
+    padding: 10px 5px;
+    background: #8B7969;
+    color:#fff;
+}
+.list-table__header--detail {
+    width: 60px;
+}
+
+.list-table__row{
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+    
+}
+.list-table__row td{
+    padding: 10px 5px;
+}
+
+.list-table__detail-button{
+    width: 50px;
+    background: #8B7969;
+    color: #fff;
+    font-size: 14px;
+    border-width: 0;
+    border-radius: 3px;
+    font-weight: 500;
+    padding: 5px 10px;
+}
+.list-table__detail-button:hover{
+    background: #c7c0ba;
+}

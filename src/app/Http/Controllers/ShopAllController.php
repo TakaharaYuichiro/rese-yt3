@@ -4,10 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Consts\CommonConst;
 use App\Models\User;
 use App\Models\Shop;
-use App\Models\Genre;
 use App\Models\Evaluation;
 
 class ShopAllController extends Controller
@@ -15,26 +13,35 @@ class ShopAllController extends Controller
     public function index(){
         // 現在認証されているユーザーを取得
         $user = Auth::user();
-        $id = Auth::id();
+        $userId = Auth::id();
+        $profile = User::find($userId);
 
-        $profile = User::where('id', $id)->first();
-        if(!isset($profile)){
+        if(isset($profile)){
+            if(!$profile->hasVerifiedEmail()) {
+                // 会員登録したもののメール認証が済んでいない場合はメール認証を促す画面へ遷移
+                return view('auth.verify-email-massage');
+            }
+        } else {
             $profile = ['name' => '', 'id' => 0];
         }
         
-        $prefCodes = CommonConst::PREF_CODE;
         $shops = Shop::get();
-        $genres = Genre::get();
 
-        // dd($shops);
-        // dd($shops[0]['evaluation']);
-
-        return view('shop_all', compact('prefCodes', 'shops', 'genres', 'profile'));
+        return view('shop_all', compact('shops', 'profile'));
     }
 
     public function favorite(Request $request) {
+        // 現在認証されているユーザーを取得
+        $user = Auth::user();
+        $userId = Auth::id();
+        $profile = User::find($userId);
+        if(!isset($profile)){
+            // return redirect('/');
+            return back();
+        }
+
         $shopId = $request -> shop_id;
-        $userId = 1;  //仮
+
         $evaluation = Evaluation::query()
             -> where('user_id', '=', $userId)
             -> where('shop_id', '=', $shopId)
@@ -54,24 +61,11 @@ class ShopAllController extends Controller
             Evaluation::create($param);
         }
 
-
-
-        // お気に入りデータ書き換え後、改めてデータ取得
-        // $shops = Shop::get();
-        // $prefCodes = CommonConst::PREF_CODE;
-        // $genres = Genre::get();
-
-        // dd($shops);
-        // dd($shops[0]['evaluation']);
-
-        // return view('shop_all', compact( 'prefCodes', 'shops', 'genres'));
-        return redirect('/');
+        // return redirect('/');
+        return back();
     }
 
     public function search(Request $request){
-        // $query = Shop::query();
-
-        // if($request->area_index == "00") dd($request);
         $selectedItems = [
             'keyword' => '',
             'areaIndex' => '00',
@@ -94,9 +88,6 @@ class ShopAllController extends Controller
                 -> areaSearch($areaIndex)
                 -> genreSearch($genreId)
                 -> get();
-
-            // $query->where('area_index', '=', $request->area_index);  
-            // if($request->area_index == "00") $query = Shop::query();
         }
         
         // 現在認証されているユーザーを取得
@@ -107,25 +98,7 @@ class ShopAllController extends Controller
         if(!isset($profile)){
             $profile = ['name' => '', 'id' => 0];
         }
-        
-        $prefCodes = CommonConst::PREF_CODE;
-        $genres = Genre::get();
 
-
-        // return view('shop_all', compact('prefCodes', 'shops', 'genres', 'profile'));
-        return view('shop_all', compact('prefCodes', 'shops', 'genres', 'profile', 'selectedItems'));
-
+        return view('shop_all', compact('shops', 'profile', 'selectedItems'));
     }
-
-    // public function areaSearch($query, $area_index){
-    //     if (!empty($area)) {
-    //         // $query->where('gender', $gender);
-    //         if ($area_index == "00"){
-
-    //         } else {
-    //             $query->where('area_index', '=', $area_index);  
-    //         }
-            
-    //     }
-    // }
 }
