@@ -92,8 +92,6 @@ Stripe決済の際に金額の入力が必要なため、コースメニュー�
 **reserved_corsesテーブル**：予約されたコースメニューの内容(単価、数量)を記録するためのテーブル
 ![TABLE SPECIFICATION](readme_fig/table_specifications_9.png)
 
-
-
 ## ER図
 
 ![ER DIAGRAM](readme_fig/er_diagrams.png)
@@ -165,10 +163,6 @@ php artisan migrate
 ``` bash
 php artisan db:seed
 ```
-
-
-
-
 
 ## 動作テスト
 
@@ -279,5 +273,3 @@ php artisan db:seed
 ![sample image](readme_fig/ss_new-shop.png)
 7. 【予約状況】飲食店の予約状況を確認する場合は、店舗代表者マイページにて「一覧」をクリックしてください。
 ![sample image](readme_fig/ss_manager-page-reservation-list.png)
-
-
