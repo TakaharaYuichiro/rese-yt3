@@ -53,6 +53,13 @@ class UsersTableSeeder extends Seeder
                 'email_verified_at' => new DateTime(),
             ],
             [
+                'name' => 'テスト利用者2',
+                'email' => 'test2@ex.com',
+                'password' => bcrypt('test_pw1234'),
+                'role' => 21,
+                'email_verified_at' => new DateTime(),
+            ],
+            [
                 'name' => '高畑 慎吾',
                 'email' => 'shingotakahata@example.net',
                 'password' => bcrypt('test_pw1234'),
