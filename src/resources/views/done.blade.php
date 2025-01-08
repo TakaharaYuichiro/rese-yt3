@@ -9,11 +9,6 @@
 
     <div class="thanks__content--inner">
       <div class="thanks__heading">
-        {{-- 
-        @if(session('message'))
-          <h2>{{ session('message') }}</h2>
-        @endif
-        --}}
       <h2>{{$message}}</h2>
       </div>
       <div class="form__button">

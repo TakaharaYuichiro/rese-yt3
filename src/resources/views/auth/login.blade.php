@@ -46,15 +46,5 @@
       </div>
     </form>
   </div>
-
- 
-
-  <!-- <div class="login-register-switching">
-    <p>
-      <span>アカウントをお持ちでない方はこちらから</span><br>
-      <a href="/register">会員登録</a>
-    </p>
-  </div> -->
-
 </div>
 @endsection

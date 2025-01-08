@@ -105,7 +105,10 @@ class ShopDetailController extends Controller
     private function getEvaluationData($shopId, $userId) 
     {
         // この店舗の評価データを取得
-        $evaluations = Evaluation::where('shop_id', $shopId)->where('score', '>', 0)->get();
+        $evaluations = Evaluation::where('shop_id', $shopId)
+            ->where('score', '>', 0)
+            ->orderBy('created_at', 'desc')
+            ->get();
         $totalScore = 0;
         $reviewerCounts = 0;
         foreach($evaluations as $evaluation) {
