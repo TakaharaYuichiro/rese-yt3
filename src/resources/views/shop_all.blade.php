@@ -42,9 +42,6 @@
             </div>
         </form>
     </div>
-
-       
-
     
     <div class="panel-section">
         @empty($shops)

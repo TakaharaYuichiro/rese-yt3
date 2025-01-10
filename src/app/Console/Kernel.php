@@ -17,8 +17,6 @@ class Kernel extends ConsoleKernel
     {
         $schedule->command('command:sendReminderMail')
             ->dailyAt('7:00');
-            // ->everyTwoMinutes(); // テスト用
-
     }
 
     /**

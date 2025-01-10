@@ -43,18 +43,31 @@ class SendReminderMails extends Command
      */
     public function handle()
     {
-        // 予約データベースのデータを取得
-        $today=Carbon::today();
-        $tomorrow = Carbon::tomorrow();
+        // 当日分の予約データを取得
+        $today = Carbon::today();
         $targetReservations = Reservation::with('user') -> whereDate('booked_datetime', $today) -> get();
         $emails = array();
+
+        // 予約ごとにリマインダーメールを送る
         foreach($targetReservations as $targetReservation) {
             $email =  $targetReservation -> user -> email;
             $emails[] = $email;
             Log::channel('reminder_mail')->info('Send an email to '.$email);
 
-            Mail::to($email)
-                ->send(new ReminderMail($targetReservation));
+            // QRコード
+            $reservationModel = new Reservation();
+            $qrCode = $reservationModel->createQrCode($targetReservation);
+
+            // 予約内容をメールで送る
+            $mailContent = [
+                'user_name' => $targetReservation->user->name,
+                'shop_name' => $targetReservation->shop->name,
+                'datetime' => $targetReservation->booked_datetime,
+                'people_counts' => $targetReservation->people_counts,
+                'qrcode' => $qrCode,
+            ];
+
+            Mail::to($email)->send(new ReminderMail($mailContent));
         }
     }
 }

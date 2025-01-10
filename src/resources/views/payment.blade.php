@@ -8,8 +8,6 @@
 <div class="main-container">
     <div class="main-content__window">
 
-
-
     <div class="header-container">
         <div class="header-text">Stripe決済</div>
     </div>
@@ -56,7 +54,6 @@
             </div>
 
             <div id="card-errors" class="text-danger"></div>
-
 
             <input type="hidden" name="reservation_id" value="{{ $reservation_data['id'] }}">
             <input type="hidden" name="total_price" value="{{ $reservation_data['total_price'] }}">

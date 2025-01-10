@@ -33,6 +33,30 @@ class ReservationsTableSeeder extends Seeder
                 'user_id' => 5,
                 'remarks' => '',
             ],
+            [
+                'shop_id' => 1,
+                'booked_datetime' => date("Y-m-d H:i:s", strtotime("19:00")),
+                'booked_minutes' => 60,
+                'people_counts' => 3,
+                'user_id' => 6,
+                'remarks' => '',
+            ],
+            [
+                'shop_id' => 2,
+                'booked_datetime' => date("Y-m-d H:i:s", strtotime("18:00")),
+                'booked_minutes' => 60,
+                'people_counts' => 3,
+                'user_id' => 7,
+                'remarks' => '',
+            ],
+            [
+                'shop_id' => 1,
+                'booked_datetime' => date("Y-m-d H:i:s", strtotime("18:00")),
+                'booked_minutes' => 60,
+                'people_counts' => 3,
+                'user_id' => 8,
+                'remarks' => '',
+            ],
         ];
 
         $data = [];

@@ -181,16 +181,6 @@
             
         });
     }
-    // // ユーザー名を表示
-    // const userNameTextElement = document.getElementById('user-name__text');
-    // const userName1 = '<?php echo $profile['name']; ?>';
-    // let userNameText = '';
-    // if(userName1 === '') {
-    //     userNameText = 'ログインしていません';
-    // } else {
-    //     userNameText = userName + 'さん';
-    // }
-    // userNameTextElement.innerHTML = userNameText;
 </script>
 
 @endsection

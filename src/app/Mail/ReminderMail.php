@@ -29,8 +29,6 @@ class ReminderMail extends Mailable
      */
     public function build()
     {
-        // dd($this->data);
-
         return $this
             ->subject('【Rese】リマインダー：本日のご予約内容')
             ->view('emails.reminder')

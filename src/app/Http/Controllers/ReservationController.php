@@ -27,7 +27,7 @@ class ReservationController extends Controller
             $profile = ['name' => ''];
         }
 
-        //
+        // 店舗情報取得
         $shopId = $request->shop_id;
         $shop = Shop::find($shopId);
         

@@ -68,6 +68,6 @@ class EvaluationController extends Controller
             'comment' => $request->evaluation_comment, 
         ];
         Evaluation::find($request->evaluation_id)->update($data);
-        return view('/done')->with('message', '評価ありがとうございました');
+        return view('/done')->with('message', '評価ありがとうございました。');
     }
 }
