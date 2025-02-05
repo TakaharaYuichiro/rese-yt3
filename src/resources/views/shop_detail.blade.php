@@ -55,8 +55,24 @@
                         </form>
                     </div>
 
+                    {{-- 
                     @if($shop['image_filename']!="")
                         <img src="{{asset('storage/'. $shop['image_filename'])}}">
+                    @else
+                        <img src="{{asset('storage/test_img/noimage.png')}}">
+                    @endif
+                    --}}
+
+                    @if($shop['image_filename']!="")
+                        <?php
+                            $disk=Storage::disk('s3');
+                            $img_obj = null;
+                            $file_name = 'shop_imgs/'. $shop['image_filename'];
+                            if ($disk->exists($file_name)) {
+                                $img_obj = $disk -> url($file_name);
+                            } 
+                        ?>
+                        <img src="{{ $img_obj }}">
                     @else
                         <img src="{{asset('storage/test_img/noimage.png')}}">
                     @endif

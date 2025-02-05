@@ -43,10 +43,24 @@
                 <td>
                     <div class="shop-img__container">
                         @if($shop['image_filename']!="")
-                            <img src="{{asset('storage/'. $shop['image_filename'])}}" id="img_prv">
+                            <?php
+                                $img_obj = null;
+                                $disk=Storage::disk('s3');
+                                $file_name = 'shop_imgs/'. $shop['image_filename'];
+                                
+                                if ($disk->exists($file_name)) {
+                                    $img_obj = $disk -> url($file_name);
+                                } 
+                            ?>
+                            <img src="{{ $img_obj }}" id="img_prv">
+                            <div>{{ $img_obj }}</div>
+                            
+                            
+                            {{-- <img src="{{asset('storage/'. $shop['image_filename'])}}" id="img_prv"> --}}
                         @else
                             <img src="{{asset('storage/test_img/noimage.png')}}" id="img_prv">
                         @endif
+                        <div>{{ $shop['image_filename'] }}</div>
                         
                         <div class="shop-img__file-select__container">
                             <span>画像を変更:</span>
