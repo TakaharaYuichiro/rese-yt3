@@ -22,9 +22,6 @@
 <div class="main-container">
     @include('layouts.header', ['pageTitle'=>''])
 
-
-    <div>{{$css_path1}}</div>
-
     <div class="search-container">       
         <form  class="search-form" id="submit_form" action="/search" method="get">
             <div class="search-item search-item--category">

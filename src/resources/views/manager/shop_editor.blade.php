@@ -53,15 +53,11 @@
                                 } 
                             ?>
                             <img src="{{ $img_obj }}" id="img_prv">
-                            <div>{{ $img_obj }}</div>
-                            
                             
                             {{-- <img src="{{asset('storage/'. $shop['image_filename'])}}" id="img_prv"> --}}
                         @else
                             <img src="{{asset('storage/test_img/noimage.png')}}" id="img_prv">
-                        @endif
-                        <div>{{ $shop['image_filename'] }}</div>
-                        
+                        @endif                        
                         <div class="shop-img__file-select__container">
                             <span>画像を変更:</span>
                             <input name="new_image_file" type="file" accept="image/png, image/jpeg" onChange="changeImage(event)"/>
