@@ -195,10 +195,26 @@
                 @endif
 
                 <div class="panel-section">
+                    <?php $disk=Storage::disk('s3'); ?>
                     @foreach($evaluations as $evaluation)
                         <div class="panel-section__item">
+                            {{-- 
                             @if($evaluation['shop']['image_filename']!="")
                                 <img src="{{asset('storage/'. $evaluation['shop']['image_filename'])}}">
+                            @else
+                                <img src="{{asset('storage/test_img/noimage.png')}}">
+                            @endif
+                            --}}
+
+                            @if($evaluation['shop']['image_filename']!="")
+                                <?php
+                                    $img_obj = null;
+                                    $file_name = 'shop_imgs/'. $evaluation['shop']['image_filename'];
+                                    if ($disk->exists($file_name)) {
+                                        $img_obj = $disk -> url($file_name);
+                                    } 
+                                ?>
+                                <img src="{{ $img_obj }}">
                             @else
                                 <img src="{{asset('storage/test_img/noimage.png')}}">
                             @endif

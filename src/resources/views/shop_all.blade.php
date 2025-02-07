@@ -4,7 +4,6 @@
     $css_path1=Storage::disk('s3')->url('css/shop_all.css');
 ?>
 
-
 @section('css')
     
     <link rel="stylesheet" href="{{ $css_path1 }}" />
@@ -55,9 +54,7 @@
             <div class="empty-message">店舗情報を取得できませんでした</div>
         @endempty
 
-        <?php
-            $disk=Storage::disk('s3');
-        ?>
+        <?php $disk=Storage::disk('s3'); ?>
 
         @foreach($shops as $shop)
         <div class="panel-section__item">
