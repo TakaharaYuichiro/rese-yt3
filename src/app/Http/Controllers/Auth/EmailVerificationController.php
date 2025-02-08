@@ -12,11 +12,9 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
  
-// use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use App\Http\Requests\EmailVerificationRequest;	// Illuminateからコピペして作成したRequest
 use Illuminate\Support\Facades\Log;
 
- 
 class EmailVerificationController extends Controller
 {
 	/**
@@ -47,10 +45,6 @@ class EmailVerificationController extends Controller
 
 		// メール送信
 		$user->sendEmailVerificationNotification();
-	
-		// return back()->with('status', 'verification-link-sent');
-		// return redirect()->route('auth.verify-email')->with('status', 'verification-link-sent');
-
 		session() -> put('status','verification-link-sent');
 		return view('auth.verify-email-massage');
 	}

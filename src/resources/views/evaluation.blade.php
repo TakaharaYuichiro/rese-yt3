@@ -10,7 +10,6 @@
 @endsection
 
 @section('content')
-
 <div class="main-container">
     <div class="header-container">
         <div class="header-container__1st-block">
@@ -38,7 +37,7 @@
                         @if($shop['image_filename']!="")
                             <img src="{{ asset('storage/'. $shop['image_filename']) }}">
                         @else
-                            <img src="{{ asset('storage/test_img/noimage.png') }}">
+                            <img src="{{ asset('storage/shop_imgs/test_img/noimage.png') }}">
                         @endif
                         
                         <div class="shop-detail__content--container">
@@ -118,7 +117,6 @@
                     <div class="evaluation-item--name"><span>評価日時</span></div>
                     <div class="evaluation-item--value"><span>{{ $evaluation->updated_at}}</span></div>
                 </div>
-
             @endif
         </div>
 
@@ -128,7 +126,6 @@
             </div> 
             @if (count($reservation_histories) == 0)
                 <div class="empty-message">記録がありません</div>
-            
             @else
                 <table class="reservation-table">
                     <tr>
@@ -150,7 +147,6 @@
                             <td>{{ date('H:i', strtotime($reservation -> booked_datetime)). '〜' }}</td>
                             <td>{{ $reservation['people_counts']. '名' }}</td>
                         </tr>
-
                     @endforeach
                 </table>    
             @endif
@@ -173,12 +169,9 @@
                 for(let icon of children) {
                     icon.style.color='red';
                 }
-                // const materialIcon = starButtons[j].getElementById('marerial-icons');
-                // materialIcon.style.color = 'red';
             }
             const starValue = document.getElementById('star-value');
             starValue.value = i+1;
-            
         });
     }
 </script>

@@ -24,6 +24,4 @@ class ReservationDetailController extends Controller
         $reserved_courses = ReservedCourse::with('course')->where('reservation_id', $request->reservation_id) -> get();
         return view('manager.reservation_detail', compact('profile', 'reservation', 'reserved_courses'));
     }
-        
-    
 }

@@ -16,24 +16,9 @@
 </head>
 
 <body>
-  <!-- <header class="header">
-    <div class="header__inner">
-      <div class="header-logo">
-        <a  href="/">
-          <h1>RESE</h1>
-        </a>
-      </div>
-      @yield('utilities')
-    </div>
-  </header> -->
-
   <main class="main">
     @yield('content')
   </main>
-
-  <!-- <footer  class="footer">
-  	<p>Atte, Inc.</p>
-  </footer> -->
 </body>
 
 </html>

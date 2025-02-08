@@ -19,8 +19,6 @@ class ShopEditorController extends Controller
         $shop_id = $request->shop_id;
         $shop = Shop::find($shop_id);
 
-        // $exists_image_file = Storage::disk('public')->exists($shop->image_filename);
-        // $exists_image_file = Storage::disk('s3')->exists('shop_imgs/'. $shop->image_filename);
         $image_storage = config('const.image_storage');
         $disk = Storage::disk($image_storage);
         $exists_image_file = $disk->exists('shop_imgs/'. $shop->image_filename);
@@ -82,27 +80,13 @@ class ShopEditorController extends Controller
         $imageFilePathName = '';
         if($image){
             // 新しい画像がアップロードされていればStorageに書き込む
-            // dd($request, $image);
-            // $hashName = $image->hashName();
-            // $dirName = 'test_img';
-            // $imageFilePathName = $dirName. '/'. $hashName;
-            // Storage::disk('public')->putFile($dirName, $image);
-
-            // ＊＊＊＊＊　S3に書き込む　＊＊＊＊＊＊
             $hashName = $image->hashName();
             $dirName = 'additional_img';
             $imageFilePathName = $dirName. '/'. $hashName;
-            // Storage::disk('s3')->putFile('shop_imgs/'. $dirName, $image, 'public');
             
             $image_storage = config('const.image_storage');
             $disk = Storage::disk($image_storage);
             $disk->putFile('shop_imgs/'. $dirName, $image, 'public');
-            
-            
-            // // バケットの`example`フォルダへアップロードする
-            // $path = Storage::disk('s3')->putFile('example', $image, 'public');
-            // // アップロードした画像のフルパスを取得
-            // $user->image = Storage::disk('s3')->url($path);
         } 
        
         if($request->is_new) {

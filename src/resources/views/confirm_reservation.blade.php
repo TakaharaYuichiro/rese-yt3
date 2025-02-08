@@ -85,21 +85,6 @@
                                 <div><span>コースメニューは予約されていません</span></div>
                             @endif
                         </div>
-                        
-                        {{-- 
-                        @if ($reservation['course_id']) 
-                            @for($i=0; $i<count($reservation['course_id']); $i++)
-                                <div>
-                                    <span>{{ $reservation['course_id'][$i] }}：</span>
-                                    <span>{{ $reservation['quantity'][$i] }}</span>
-                                </div>
-                                <input type="hidden" name="course_id[{{$i}}]" value="{{ $reservation['course_id'][$i] }}"/>
-                                <input type="hidden" name="quantity[{{$i}}]" value="{{ $reservation['quantity'][$i] }}"/>
-                            @endfor
-                        @else
-                            <div><span>コースメニューは予約されていません</span></div>
-                        @endif
-                        --}}
                     </td>
                 </tr>
             </table>

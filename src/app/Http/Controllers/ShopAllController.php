@@ -60,8 +60,6 @@ class ShopAllController extends Controller
             ];
             Evaluation::create($param);
         }
-
-        // return redirect('/');
         return back();
     }
 

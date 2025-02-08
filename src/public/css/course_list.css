@@ -118,9 +118,6 @@
     vertical-align:center;
     text-align: center;
     white-space: none;
-
-
-
 }
 .course-td--price{
     text-align: right;
@@ -130,14 +127,11 @@
     width: 60px;
     background: #8B7969;
     color: #fff;
-    /* background: #F4F4F4;
-    color: #a29283; */
     font-size: 14px;
     border-width: 0;
     border-radius: 3px;
     font-weight: 500;
     padding: 5px 10px;
-
 }
 
 .course-edit-button:hover {

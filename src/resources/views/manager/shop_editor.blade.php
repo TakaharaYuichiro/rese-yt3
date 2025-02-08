@@ -46,9 +46,6 @@
                             <?php
                                 $image_storage = config('const.image_storage');
                                 $disk = Storage::disk($image_storage);
-                                // $disk=Storage::disk('public');
-                                //$disk=Storage::disk('s3');
-
                                 $img_obj = null;
                                 $file_name = 'shop_imgs/'. $shop['image_filename'];
                                 
@@ -57,8 +54,6 @@
                                 } 
                             ?>
                             <img src="{{ $img_obj }}" id="img_prv">
-                            
-                            {{-- <img src="{{asset('storage/'. $shop['image_filename'])}}" id="img_prv"> --}}
                         @else
                             <img src="{{asset('storage/shop_imgs/test_img/noimage.png')}}" id="img_prv">
                         @endif                        
@@ -135,7 +130,6 @@
             <button class="extra-button" type="submit" id="form-remove--submit-button" {{$is_new? 'disabled': ''}} >この店舗を削除</button>
         </form>
     </div>
-   
 </div> 
 
 <script>
@@ -184,6 +178,4 @@
             formRemove.submit();
     });
 </script>
-
-
 @endsection

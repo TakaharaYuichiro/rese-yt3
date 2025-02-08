@@ -59,8 +59,6 @@
 </div>
 
 <script>
-
-
     // メニューが開いている時に、メニュー領域の外側をクリックしたとき、メニューを閉じる
     const menuBtn = document.getElementById('humberger-button--check-box');
     document.addEventListener('click', (e) => {
@@ -69,13 +67,5 @@
                 menuBtn.checked = false;
             }
         } 
-
-        // console.log(menuBtn.checked);
-        // if(menuBtn.checked) {
-        //     if(!e.target.closest('#menu-container')) {
-        //         menuBtn.checked = false;
-        //     }
-        // }
-
     });
 </script>

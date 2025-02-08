@@ -132,33 +132,5 @@
 /* レスポンシブデザイン対応 */
 /* =================================== */
 @media screen and (max-width: 768px){
-  /* .header-container{
-    height: 110px;
-  }
-  
-  .search-container{
-    height: 100%;
-  }
-  .search-form {
-    align-items:flex-start;
-    flex-direction: column;
-  }
-  .search-item{
-    height: 33%;
-    width: 100%;
-    background:#FBFBFB;
-    border: none;
-    color:#8B7969;
-    margin:2px 5px;
-  } */
 
 }
-
-
-
-/* @media (hover: hover) {
-
-  .panel-section__item--button--detail:enabled:hover {
-    background: #c7c0ba;
-  }
-} */

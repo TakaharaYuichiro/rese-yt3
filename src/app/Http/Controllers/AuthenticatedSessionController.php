@@ -1,6 +1,6 @@
 <?php
 
-// 以下のファイルをコピーしただけ
+// 以下のファイルをコピー
 // vendor/laravel/fortify/src/Http/Controllers/AuthenticatedSessionController.php
 // （ただし、LoginRequestをApp\Http\Requestsの下に作成）
 
@@ -8,8 +8,6 @@
 // https://qiita.com/JonyTask/items/ce6c7d4ffef32980f994
 
 namespace App\Http\Controllers;
-
-// use Illuminate\Http\Request;
 
 use Illuminate\Contracts\Auth\StatefulGuard;
 use Illuminate\Http\Request;
@@ -25,7 +23,6 @@ use Laravel\Fortify\Contracts\LoginViewResponse;
 use Laravel\Fortify\Contracts\LogoutResponse;
 use Laravel\Fortify\Features;
 use Laravel\Fortify\Fortify;
-// use Laravel\Fortify\Http\Requests\LoginRequest;
 
 use App\Http\Requests\AuthorRequest;
 use App\Http\Requests\LoginRequest;

@@ -15,12 +15,6 @@
     <div class="message-container">
         @if (session('flash_alert'))
             <div class="message-container--danger">{{ session('flash_alert') }}</div>
-        @elseif(session('status'))
-            {{-- 
-            <div class="message-container--success">
-                {{ session('status') }}
-            </div>
-            --}}
         @endif
     </div>
 

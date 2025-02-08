@@ -1,6 +1,6 @@
 <?php
 
-// 以下のファイルをコピーして、messagesを付け加えただけ
+// 以下のファイルをコピーして、messagesを付け加えた
 // vendor/laravel/fortify/src/Http/Requests/LoginRequest.php
 
 // 以下の記事を参考

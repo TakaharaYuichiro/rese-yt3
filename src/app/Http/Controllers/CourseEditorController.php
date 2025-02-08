@@ -134,7 +134,6 @@ class CourseEditorController extends Controller
         if (isset($_POST['cancel'])){
             return back();
         }
-        // dd('prevent',$request);
 
         $enable = $request->availability == 'prevent'? 0: 1;
         $targetCourse = Course::find($request->course_id);
@@ -145,7 +144,5 @@ class CourseEditorController extends Controller
             $targetCourse -> update($courseData);
         }
         return back();
-
     }
-
 }

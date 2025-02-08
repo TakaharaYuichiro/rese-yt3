@@ -25,7 +25,6 @@
 }
 
 
-
 /* =================================== */
 /*  */
 /* =================================== */
@@ -84,34 +83,14 @@
     background: #8B7969;
     color:#fff;
 }
-.course-table__header--id {
-    /* width: 60px; */
-}
-.course-table__header--name {
-    /* min-width: 200px; */
-}
-.course-table__header--price {
-    /* width: 120px; */
-}
-.course-table__header--enable {
-    /* width: 120px; */
-}
-.course-table__header--long-button {
-    /* width: 130px; */
-}
-.course-table__header--short-button {
-    /* width: 70px; */
-}
+
 .course-table td{
     padding: 2px 5px;
     border-bottom: 1px solid #aaa;
     vertical-align:center;
-
-    /* border:1px solid red; */
 }
 .course-td--text {
     padding: 0 5px;
-    /* background: #e8e8e8; */
 }
 .course-td--id{
     text-align: center;
@@ -120,8 +99,6 @@
     text-align: right;
     white-space: nowrap;
 }
-
-
 
 .course-td--textarea {
     width: 100%;
@@ -161,8 +138,6 @@ label {
     width: 60px;
     background: #8B7969;
     color: #fff;
-    /* background: #F4F4F4;
-    color: #a29283; */
     font-size: 14px;
     border-width: 0;
     border-radius: 3px;

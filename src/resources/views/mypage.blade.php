@@ -201,14 +201,6 @@
                     ?>
                     @foreach($evaluations as $evaluation)
                         <div class="panel-section__item">
-                            {{-- 
-                            @if($evaluation['shop']['image_filename']!="")
-                                <img src="{{asset('storage/'. $evaluation['shop']['image_filename'])}}">
-                            @else
-                                <img src="{{asset('storage/test_img/noimage.png')}}">
-                            @endif
-                            --}}
-
                             @if($evaluation['shop']['image_filename']!="")
                                 <?php
                                     $img_obj = null;
@@ -245,7 +237,6 @@
                             </div>
                         </div>
                     @endforeach
-            
                 </div>
             </div>
         </div>

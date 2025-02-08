@@ -32,7 +32,6 @@ class ConfirmMail extends Mailable
     public function build()
     {
         return $this
-            // ->from('example@example.com')
             ->subject($this->subject)
             ->view('emails.confirm_reservation_mail')
             ->with('data', $this->data);;

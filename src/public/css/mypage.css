@@ -8,7 +8,6 @@
   padding: 15px 0;
   display: grid;
   grid-template-columns: minmax(350px, 1.5fr) 1fr;
-  /* height: 100vh; */
 }
 
 .block-container {
@@ -66,7 +65,6 @@
   font-weight: 500;
   font-size: 0.8rem;
 }
-
 
 .reservation-header__button--container{
   display: flex;
@@ -141,7 +139,6 @@
 .reservation-delete-button:hover {
   background: #7992f8;
 }
-
 
 /* =================================== */
 /* 予約内容の表の部分 */
@@ -252,9 +249,6 @@
 /* レスポンシブデザイン対応 */
 /* =================================== */
 @media screen and (max-width: 768px){
-  /* .header-container__2nd-block {
-    display: block;
-  } */
   .sub-container{
     display: block;
     height: auto;

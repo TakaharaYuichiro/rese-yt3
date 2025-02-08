@@ -89,18 +89,13 @@
 
 .shop-detail__favorite-form {
     margin-left: 30px;
-
-
 }
 .shop-detail__favorite-button {
     border: none;
     display: flex;
     align-items: center;
     background: transparent;
-
-
 }
-
 .shop-detail img {
     width: 100%;
 }

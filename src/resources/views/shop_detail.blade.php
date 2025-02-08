@@ -55,14 +55,6 @@
                         </form>
                     </div>
 
-                    {{-- 
-                    @if($shop['image_filename']!="")
-                        <img src="{{asset('storage/'. $shop['image_filename'])}}">
-                    @else
-                        <img src="{{asset('storage/test_img/noimage.png')}}">
-                    @endif
-                    --}}
-
                     @if($shop['image_filename']!="")
                         <?php
                             $image_storage = config('const.image_storage');

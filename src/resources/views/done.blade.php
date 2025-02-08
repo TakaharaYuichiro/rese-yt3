@@ -6,7 +6,6 @@
 
 @section('content')
   <div class="thanks__content">
-
     <div class="thanks__content--inner">
       <div class="thanks__heading">
       <h2>{{$message}}</h2>

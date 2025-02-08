@@ -54,60 +54,51 @@
         ?>
 
         @foreach($shops as $shop)
-        <div class="panel-section__item">
-            {{-- 
-            @if($shop['image_filename']!="")
-                <img src="{{asset('storage/'. $shop['image_filename'])}}">
-            @else
-                <img src="{{asset('storage/test_img/noimage.png')}}">
-            @endif
-            --}}
+            <div class="panel-section__item">
+                @if($shop['image_filename']!="")
+                    <?php
+                        $img_obj = null;
+                        $file_name = 'shop_imgs/'. $shop['image_filename'];
+                        if ($disk->exists($file_name)) {
+                            $img_obj = $disk -> url($file_name);
+                        } 
+                    ?>
+                    <img src="{{ $img_obj }}">
+                @else
+                    <img src="{{asset('storage/shop_imgs/test_img/noimage.png')}}">
+                @endif
 
-            @if($shop['image_filename']!="")
-                <?php
-                    $img_obj = null;
-                    $file_name = 'shop_imgs/'. $shop['image_filename'];
-                    if ($disk->exists($file_name)) {
-                        $img_obj = $disk -> url($file_name);
-                    } 
-                ?>
-                <img src="{{ $img_obj }}">
-            @else
-                <img src="{{asset('storage/shop_imgs/test_img/noimage.png')}}">
-            @endif
+                <div class="panel-section__item--content">
+                    <div class="panel-section__item--name">{{$shop['name']}}</div>
+                    <div class="panel-section__item--tag">
+                        <span>{{'#'. $shop->getPrefName(); }}</span>
+                        <span>{{'#'. $shop['genre']['genre']; }}</span>
+                    </div>
+                    <div class="panel-section__item--button">
+                        <form action="{{ route('detail',['shop_id' => $shop->id ]) }}" method="get">
+                            <button class="panel-section__item--button--detail" type="submit">詳しくみる</button>
+                        </form>
 
-            <div class="panel-section__item--content">
-                <div class="panel-section__item--name">{{$shop['name']}}</div>
-                <div class="panel-section__item--tag">
-                    <span>{{'#'. $shop->getPrefName(); }}</span>
-                    <span>{{'#'. $shop['genre']['genre']; }}</span>
-                </div>
-                <div class="panel-section__item--button">
-                    <form action="{{ route('detail',['shop_id' => $shop->id ]) }}" method="get">
-                        <button class="panel-section__item--button--detail" type="submit">詳しくみる</button>
-                    </form>
-
-                    <form action="/favorite" method="post">
-                        @csrf
-                        <input type="hidden" name="shop_id" value="{{$shop['id']}}">
-                        <button class="panel-section__item--button--favorite" type="submit">
-                            @php
-                                $favorite = false;
-                                foreach($shop['evaluation'] as $evaluation){
-                                    if ($evaluation['user_id'] == $profile['id']) $favorite = $evaluation['favorite']; 
-                                }
-                            @endphp
-                            <span class="material-icons" style="color: {{$favorite? 'red' :'lightgray';}}">
-                                favorite
-                            </span>
-                        </button>
-                    </form>
+                        <form action="/favorite" method="post">
+                            @csrf
+                            <input type="hidden" name="shop_id" value="{{$shop['id']}}">
+                            <button class="panel-section__item--button--favorite" type="submit">
+                                @php
+                                    $favorite = false;
+                                    foreach($shop['evaluation'] as $evaluation){
+                                        if ($evaluation['user_id'] == $profile['id']) $favorite = $evaluation['favorite']; 
+                                    }
+                                @endphp
+                                <span class="material-icons" style="color: {{$favorite? 'red' :'lightgray';}}">
+                                    favorite
+                                </span>
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
         @endforeach
     </div>
-
 </div>
 
 <script>

@@ -1,6 +1,6 @@
 <?php
 
-// 以下のファイルをコピーして、RequestをRegisterRequestにしただけ
+// 以下のファイルをコピーして、RequestをRegisterRequestにした
 // vendor/laravel/fortify/src/Http/Controllers/RegisterdUserController.php
 
 // 以下の記事を参考

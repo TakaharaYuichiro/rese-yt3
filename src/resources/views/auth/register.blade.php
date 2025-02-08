@@ -63,8 +63,6 @@
           <div class="form__error">
             <!-- 行間を少し空けるためのダミー要素 -->
           </div>
-
-
         </div>
       </div>
       <div class="form__button">
@@ -73,14 +71,5 @@
       </div>
     </form>
   </div>
-
-  <!-- <div class="login-register-switching">
-    <p>
-      <span>アカウントをお持ちの方はこちらから</span><br>
-      <a href="/login">ログイン</a>
-    </p>
-  </div> -->
-
-
 </div>
 @endsection

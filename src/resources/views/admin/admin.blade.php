@@ -201,7 +201,6 @@
 
             const answer = window.confirm('メールを送信してもよろしいですか？');
             if (!answer) {
-                // submitButton.name='cancel';
                 return;
             }
 
