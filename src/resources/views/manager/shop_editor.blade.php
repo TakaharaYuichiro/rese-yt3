@@ -44,8 +44,12 @@
                     <div class="shop-img__container">
                         @if($shop['image_filename']!="")
                             <?php
+                                $image_storage = config('const.image_storage');
+                                $disk = Storage::disk($image_storage);
+                                // $disk=Storage::disk('public');
+                                //$disk=Storage::disk('s3');
+
                                 $img_obj = null;
-                                $disk=Storage::disk('s3');
                                 $file_name = 'shop_imgs/'. $shop['image_filename'];
                                 
                                 if ($disk->exists($file_name)) {
@@ -56,7 +60,7 @@
                             
                             {{-- <img src="{{asset('storage/'. $shop['image_filename'])}}" id="img_prv"> --}}
                         @else
-                            <img src="{{asset('storage/test_img/noimage.png')}}" id="img_prv">
+                            <img src="{{asset('storage/shop_imgs/test_img/noimage.png')}}" id="img_prv">
                         @endif                        
                         <div class="shop-img__file-select__container">
                             <span>画像を変更:</span>

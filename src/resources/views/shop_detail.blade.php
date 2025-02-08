@@ -65,7 +65,8 @@
 
                     @if($shop['image_filename']!="")
                         <?php
-                            $disk=Storage::disk('s3');
+                            $image_storage = config('const.image_storage');
+                            $disk = Storage::disk($image_storage);
                             $img_obj = null;
                             $file_name = 'shop_imgs/'. $shop['image_filename'];
                             if ($disk->exists($file_name)) {
@@ -74,7 +75,7 @@
                         ?>
                         <img src="{{ $img_obj }}">
                     @else
-                        <img src="{{asset('storage/test_img/noimage.png')}}">
+                        <img src="{{asset('storage/shop_imgs/test_img/noimage.png')}}">
                     @endif
                     
                     <div class="shop-detail__content">

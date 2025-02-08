@@ -20,7 +20,11 @@ class ShopEditorController extends Controller
         $shop = Shop::find($shop_id);
 
         // $exists_image_file = Storage::disk('public')->exists($shop->image_filename);
-        $exists_image_file = Storage::disk('s3')->exists('shop_imgs/'. $shop->image_filename);
+        // $exists_image_file = Storage::disk('s3')->exists('shop_imgs/'. $shop->image_filename);
+        $image_storage = config('const.image_storage');
+        $disk = Storage::disk($image_storage);
+        $exists_image_file = $disk->exists('shop_imgs/'. $shop->image_filename);
+        
         if(!$exists_image_file){
             $shop['image_filename']='';
         }
@@ -88,7 +92,11 @@ class ShopEditorController extends Controller
             $hashName = $image->hashName();
             $dirName = 'additional_img';
             $imageFilePathName = $dirName. '/'. $hashName;
-            Storage::disk('s3')->putFile('shop_imgs/'. $dirName, $image, 'public');
+            // Storage::disk('s3')->putFile('shop_imgs/'. $dirName, $image, 'public');
+            
+            $image_storage = config('const.image_storage');
+            $disk = Storage::disk($image_storage);
+            $disk->putFile('shop_imgs/'. $dirName, $image, 'public');
             
             
             // // バケットの`example`フォルダへアップロードする
